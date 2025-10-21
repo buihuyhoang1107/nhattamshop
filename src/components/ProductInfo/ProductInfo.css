@@ -5,14 +5,13 @@
   max-width: 421px;
   margin-left: auto;
   margin-right: auto;
+  gap: 4px;
+  display: grid;
 }
 
 .product-badges {
-  display: flex;
+  /* display: flex; */
   gap: 8px;
-  margin-bottom: 12px;
-  text-align: center;
-  justify-content: center;
 }
 
 .sale-badge {
@@ -22,6 +21,7 @@
   border-radius: 10px;
   font-size: 12px;
   font-weight: bold;
+  width: 103px;
 }
 
 .mall-badge {
@@ -37,7 +37,6 @@
   font-size: 18px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 12px;
   line-height: 1.4;
 }
 
@@ -45,7 +44,6 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
 }
 
 .rating-info {
@@ -64,7 +62,11 @@
 }
 
 .review-count {
-  color: #27ae60;
+  color: rgb(15, 195, 193);
+  font-size: 14px;
+}
+.shipping-text {
+  color: rgb(15, 195, 193);
   font-size: 14px;
 }
 
@@ -73,27 +75,17 @@
   font-size: 14px;
 }
 
-.shipping-info {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 16px;
-  color: #3498db;
-  font-size: 14px;
-}
-
 .shipping-icon {
   font-size: 16px;
 }
 
 .top-product-banner {
-  display: flex;
   align-items: center;
   gap: 8px;
-  background: #f8f9fa;
-  padding: 12px;
+  background: rgba(255, 242, 231, 1);
+  padding: 5px;
   border-radius: 8px;
-  margin-bottom: 16px;
+  white-space: nowrap;
 }
 
 .trophy-icon {
@@ -104,6 +96,7 @@
   flex: 1;
   font-size: 14px;
   color: #333;
+  font-weight: 600;
 }
 
 .arrow {
@@ -114,8 +107,9 @@
 .product-features {
   display: flex;
   flex-wrap: wrap;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 4px;
+  background: rgba(229, 231, 235, 0.87);
+  white-space: nowrap;
 }
 
 .feature-item {
@@ -134,14 +128,9 @@
   font-size: 16px;
   font-weight: bold;
   color: #333;
-  margin-bottom: 12px;
 }
 
 .quantity-section {
-  margin-bottom: 20px;
-}
-
-.quantity-options {
   display: flex;
   gap: 12px;
 }
@@ -149,7 +138,7 @@
 .quantity-btn {
   padding: 8px 16px;
   border: 1px solid #ddd;
-  background: white;
+  background: rgba(229, 231, 235, 0.87);
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s;
@@ -162,15 +151,13 @@
 }
 
 .payment-section {
-  margin-bottom: 20px;
 }
 
 .cod-badge {
   display: inline-block;
-  background: #27ae60;
+  background: #588b3c;
   color: white;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 0 8px;
   font-size: 12px;
   font-weight: bold;
   margin-right: 8px;
@@ -187,21 +174,24 @@
 
 .shipping-voucher {
   background: none;
-  border: 1px solid #3498db;
-  color: #3498db;
-  padding: 8px 12px;
-  border-radius: 4px;
+  border: 2px solid rgba(92, 193, 197, 1);
+  color: rgba(92, 193, 197, 1);
+  padding: 2px 4px;
+  border-radius: 6px;
   cursor: pointer;
-  margin-bottom: 12px;
 }
 
 .shipping-cost {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  justify-content: space-between;
 }
-
+.shipping-cost-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 .original-cost {
   text-decoration: line-through;
   color: #666;
@@ -213,9 +203,6 @@
 }
 
 .shipping-rules {
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 12px;
 }
 
 .shipping-rules p {
@@ -232,7 +219,6 @@
 }
 
 .return-policy {
-  margin-bottom: 20px;
 }
 
 .return-policy p {
@@ -242,7 +228,7 @@
 }
 
 .buy-now-btn {
-  width: 100%;
+  width: fit-content;
   background: #e74c3c;
   color: white;
   border: none;
@@ -251,7 +237,17 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.4s;
+  animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  25%, 75% {
+    opacity: 0.5;
+  }
 }
 
 .buy-now-btn:hover {
