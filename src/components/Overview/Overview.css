@@ -1,6 +1,6 @@
 .overview {
   background: white;
-  padding: 20px 0;
+  padding: 20px 0 0 0;
   max-width: 421px;
   margin: 0 auto;
   position: relative;
@@ -22,6 +22,17 @@
   margin: 0;
   font-size: 18px;
   font-weight: bold;
+  animation: blink-text 1.5s infinite;
+}
+
+@keyframes blink-text {
+  0%, 50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  25%, 75% {
+    transform: scale(1.1);
+  }
 }
 
 .problems-grid {
@@ -34,7 +45,7 @@
 
 .problem-item {
   border: 2px solid #e74c3c;
-  border-radius: 8px;
+  border-radius: 15px;
   overflow: hidden;
 }
 
@@ -51,7 +62,7 @@
 }
 
 .problem-text {
-  padding: 12px;
+  padding: 4px;
   background: white;
 }
 
@@ -64,7 +75,6 @@
 
 .cta-section {
   text-align: center;
-  padding: 0 16px;
 }
 
 .arrows {
@@ -76,8 +86,8 @@
 .cta-banner {
   background: #e74c3c;
   color: white;
-  padding: 16px;
-  border-radius: 8px;
+  text-align: center;
+  padding: 20px;
 }
 
 .cta-banner h3 {
@@ -133,13 +143,14 @@
 }
 
 .benefits-section {
-  padding: 40px 16px;
+  padding: 40px 16px 0 16px;
   background: #f8f9fa;
 }
 
 .benefits-title {
   text-align: center;
   margin-bottom: 30px;
+  animation: blink-text 1.5s infinite;
 }
 
 .red-text {
@@ -161,13 +172,14 @@
   background: white;
   border: 2px solid #9b59b6;
   border-radius: 8px;
-  padding: 20px;
+  padding: 5px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .benefit-title {
   color: #e74c3c;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -175,7 +187,7 @@
 
 .benefit-description {
   color: #333;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   margin-bottom: 16px;
 }
@@ -191,7 +203,7 @@
   align-items: flex-start;
   gap: 8px;
   margin-bottom: 8px;
-  font-size: 14px;
+  font-size: 16px;
   color: #333;
 }
 
@@ -214,22 +226,23 @@
 
 .hair-growth-section,
 .hair-quality-section {
-  padding: 20px 16px;
+  padding: 0 16px 0px 16px;
 }
 
 .growth-card,
 .quality-card {
   background: white;
-  border: 2px solid #3498db;
+  border: 2px solid #003eb9;
   border-radius: 8px;
-  padding: 20px;
+  padding: 5px;
   margin-bottom: 20px;
+  text-align: center;
 }
 
 .growth-title,
 .quality-title {
   color: #e74c3c;
-  font-size: 16px;
+  font-size: 22px;
   font-weight: bold;
   margin-bottom: 12px;
   text-transform: uppercase;
@@ -244,8 +257,6 @@
 }
 
 .quality-highlight {
-  font-weight: bold;
-  color: #e74c3c;
   margin-bottom: 8px;
 }
 
