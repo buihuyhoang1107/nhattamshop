@@ -60,7 +60,7 @@ const Overview: React.FC<OverviewProps> = ({
           </div>
           <div className="showcase-item">
             <img
-             src="/img/imgi_52_gif.gif"
+             src="/img/imgi_58_gif.gif"
               alt="Hair result 2"
             />
           </div>
