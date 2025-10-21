@@ -46,6 +46,10 @@
   color: #3498db;
   text-decoration: none;
   font-size: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
 }
 
 .reviews-list {

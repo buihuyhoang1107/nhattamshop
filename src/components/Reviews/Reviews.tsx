@@ -32,9 +32,9 @@ const Reviews: React.FC<ReviewsProps> = ({
           <div className="rating-stars">
             {renderStars(Math.floor(overallRating))}
           </div>
-          <a href="#" className="see-more">
+          <button className="see-more">
             Xem thêm
-          </a>
+          </button>
         </div>
       </div>
 
@@ -67,7 +67,7 @@ const Reviews: React.FC<ReviewsProps> = ({
                   <img
                     key={index}
                     src={image}
-                    alt={`Review image ${index + 1}`}
+                    alt={`Review ${index + 1}`}
                     className="review-image"
                   />
                 ))}
