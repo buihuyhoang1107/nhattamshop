@@ -1,0 +1,263 @@
+.overview {
+  background: white;
+  padding: 20px 0;
+  max-width: 421px;
+  margin: 0 auto;
+}
+
+.problems-section {
+  margin-bottom: 40px;
+}
+
+.problems-banner {
+  background: #e74c3c;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.problems-banner h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.problems-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 0 16px;
+  margin-bottom: 30px;
+}
+
+.problem-item {
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.problem-image {
+  width: 100%;
+  height: 120px;
+  overflow: hidden;
+}
+
+.problem-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.problem-text {
+  padding: 12px;
+  background: white;
+}
+
+.problem-text p {
+  margin: 0;
+  font-size: 12px;
+  color: #333;
+  line-height: 1.4;
+}
+
+.cta-section {
+  text-align: center;
+  padding: 0 16px;
+}
+
+.arrows {
+  font-size: 24px;
+  color: #e74c3c;
+  margin-bottom: 16px;
+}
+
+.cta-banner {
+  background: #e74c3c;
+  color: white;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.cta-banner h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.product-showcase {
+  position: relative;
+  margin: 40px 0;
+  padding: 0 16px;
+}
+
+.showcase-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.showcase-item {
+  border: 2px solid #e74c3c;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 150px;
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.logo-circle {
+  width: 60px;
+  height: 60px;
+  background: #333;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.benefits-section {
+  padding: 40px 16px;
+  background: #f8f9fa;
+}
+
+.benefits-title {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.red-text {
+  color: #e74c3c;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.black-text {
+  color: #333;
+  font-size: 18px;
+  font-weight: bold;
+  display: block;
+}
+
+.benefit-card {
+  background: white;
+  border: 2px solid #9b59b6;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.benefit-title {
+  color: #e74c3c;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.benefit-description {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.benefit-features {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.benefit-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
+.feature-icon {
+  font-size: 16px;
+  margin-top: 2px;
+}
+
+.benefit-images {
+  display: flex;
+  gap: 8px;
+}
+
+.benefit-images img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.hair-growth-section,
+.hair-quality-section {
+  padding: 20px 16px;
+}
+
+.growth-card,
+.quality-card {
+  background: white;
+  border: 2px solid #3498db;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.growth-title,
+.quality-title {
+  color: #e74c3c;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.growth-description,
+.quality-description {
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+.quality-highlight {
+  font-weight: bold;
+  color: #e74c3c;
+  margin-bottom: 8px;
+}
+
+.growth-images,
+.quality-images {
+  display: flex;
+  gap: 8px;
+}
+
+.growth-images img,
+.quality-images img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 4px;
+}

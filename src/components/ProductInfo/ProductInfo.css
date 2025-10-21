@@ -1,0 +1,259 @@
+.product-info {
+  padding: 16px 12px;
+  background: white;
+  margin-top: 0;
+  max-width: 421px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product-badges {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  text-align: center;
+  justify-content: center;
+}
+
+.sale-badge {
+  background: #e74c3c;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.mall-badge {
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.product-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.rating-info {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stars {
+  font-size: 16px;
+}
+
+.rating-score {
+  color: #27ae60;
+  font-weight: bold;
+}
+
+.review-count {
+  color: #27ae60;
+  font-size: 14px;
+}
+
+.sold-info {
+  color: #666;
+  font-size: 14px;
+}
+
+.shipping-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: #3498db;
+  font-size: 14px;
+}
+
+.shipping-icon {
+  font-size: 16px;
+}
+
+.top-product-banner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8f9fa;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.trophy-icon {
+  font-size: 20px;
+}
+
+.banner-text {
+  flex: 1;
+  font-size: 14px;
+  color: #333;
+}
+
+.arrow {
+  color: #666;
+  font-size: 16px;
+}
+
+.product-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #333;
+}
+
+.feature-icon {
+  font-size: 16px;
+}
+
+.section-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.quantity-section {
+  margin-bottom: 20px;
+}
+
+.quantity-options {
+  display: flex;
+  gap: 12px;
+}
+
+.quantity-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quantity-btn.active {
+  background: #e74c3c;
+  color: white;
+  border-color: #e74c3c;
+}
+
+.payment-section {
+  margin-bottom: 20px;
+}
+
+.cod-badge {
+  display: inline-block;
+  background: #27ae60;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.cod-text {
+  font-size: 14px;
+  color: #333;
+}
+
+.shipping-section {
+  margin-bottom: 20px;
+}
+
+.shipping-voucher {
+  background: none;
+  border: 1px solid #3498db;
+  color: #3498db;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.shipping-cost {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.original-cost {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.free-shipping {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.shipping-rules {
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 12px;
+}
+
+.shipping-rules p {
+  margin: 4px 0;
+}
+
+.shipping-details {
+  font-size: 14px;
+  color: #333;
+}
+
+.shipping-details p {
+  margin: 4px 0;
+}
+
+.return-policy {
+  margin-bottom: 20px;
+}
+
+.return-policy p {
+  font-size: 14px;
+  color: #333;
+  margin: 0;
+}
+
+.buy-now-btn {
+  width: 100%;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.buy-now-btn:hover {
+  background: #c0392b;
+}
