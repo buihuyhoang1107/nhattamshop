@@ -44,9 +44,13 @@ const App: React.FC = () => {
 
   // Product images for slide
   const productImages = [
-    "/img/slide_1.jpg",
-    "/img/slide_2.jpg", 
-    "/img/slide_3.jpg"
+    "/img/slide_img1.jpg",
+    "/img/slide_img2.jpg", 
+    "/img/slide_img3.jpg",
+    "/img/slide_img4.jpg",
+    "/img/slide_img5.jpg",
+    "/img/slide_img6.jpg",
+    "/img/slide_img7.jpg"
   ];
 
   // Product data
@@ -76,28 +80,28 @@ const App: React.FC = () => {
       title: "Rụng tóc",
       description:
         "Rụng tóc từng nắm mỗi lần gội – chạm nhẹ cũng rụng, chải nhẹ cũng đau lòng.",
-      image: "/img/slide_1.jpg",
+      image: "/img/problems-grid1.png",
     },
     {
       id: "2",
       title: "Tóc mỏng",
       description:
         "Tóc mỏng lộ da đầu – mất tự tin, ngại giao tiếp, ngại cả nhìn chính mình trong gương.",
-      image: "/img/slide_1.jpg",
+        image: "/img/problems-grid2.png",
     },
     {
       id: "3",
       title: "Thử nhiều sản phẩm",
       description:
         "Đã thử đủ loại dầu gội – nhưng tóc vẫn khô, rụng, chẳng thấy gì khá hơn.",
-      image: "/img/slide_1.jpg",
+        image: "/img/problems-grid3.png",
     },
     {
       id: "4",
       title: "Tóc khô xơ",
       description:
         "Tóc khô xơ, chẻ ngọn, xù rối – nhìn già hơn tuổi thật, mất hẳn sức sống",
-      image: "/img/slide_1.jpg",
+        image: "/img/problems-grid4.png",
     },
   ];
 
@@ -111,7 +115,7 @@ const App: React.FC = () => {
       features: [
         "Khác biệt lớn: Kể cả khi bạn ngưng dùng sản phẩm, tóc vẫn giữ độ chắc khỏe – không bị rụng lại như ban đầu.",
       ],
-      images: ["/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"],
+      images: ["/img/imgi_57_gif.gif", "/img/imgi_58_gif.gif"],
     },
   ];
 
@@ -126,9 +130,9 @@ const App: React.FC = () => {
       comment:
         "Gội 2 tuần thì thấy tóc bắt đầu mọc lên nhiều, Mùi hoa thơm lâu, quạn trọng k bị gàu và k bết Nhật Tâm mãi đỉnh",
       images: [
-        "/img/slide_3.jpg",
-        "/img/slide_3.jpg",
-        "/img/slide_3.jpg",
+        "/img/imgi_74_jpeg.jpg",
+        "/img/imgi_75_jpeg.jpg",
+        "/img/imgi_76_jpeg.jpg",
       ],
       date: "2024-01-15",
     },
@@ -141,9 +145,9 @@ const App: React.FC = () => {
       comment:
         "Đúng như anh Tâm giới thiệu, quá nhiều tính năng, phục hồi, kích mọc, lại còn trị gàu, quá đỉnh nhaaaaa <3",
       images: [
-        "/img/slide_3.jpg",
-        "/img/slide_3.jpg",
-        "/img/slide_3.jpg",
+        "/img/imgi_77_jpeg.jpg", 
+        "/img/imgi_78_jpeg.jpg",
+        "/img/imgi_79_jpeg.jpg",
       ],
       date: "2024-01-14",
     },
@@ -154,7 +158,7 @@ const App: React.FC = () => {
       rating: 5,
       itemDetail: "1 cặp",
       comment: "Sản phẩm rất tốt, tóc mọc nhiều hơn sau 1 tháng sử dụng",
-      images: ["/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"],
+      images: ["/img/imgi_82_jpeg.jpg","/img/imgi_83_jpeg.jpg","/img/imgi_84_jpeg.jpg"],
       date: "2024-01-13",
     },
   ];
@@ -261,10 +265,10 @@ const App: React.FC = () => {
           hairProblems={hairProblems}
           productBenefits={productBenefits}
         />
+        <Description certifications={certifications} />
 
         <Reviews reviews={reviews} overallRating={4.9} totalReviews={1628} />
 
-        <Description certifications={certifications} />
 
         <Suggestions
           packages={packages}

@@ -170,11 +170,12 @@
 
 .benefit-card {
   background: white;
-  border: 2px solid #9b59b6;
+  border: 2px solid #003eb9;
   border-radius: 8px;
   padding: 5px;
   margin-bottom: 20px;
   text-align: center;
+
 }
 
 .benefit-title {
@@ -218,8 +219,10 @@
 }
 
 .benefit-images img {
-  width: 80px;
-  height: 80px;
+  margin: 0 auto;
+  border: 1px solid #003eb9;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -232,11 +235,13 @@
 .growth-card,
 .quality-card {
   background: white;
-  border: 2px solid #003eb9;
+  border: 1px solid #003eb9;
   border-radius: 8px;
   padding: 5px;
   margin-bottom: 20px;
   text-align: center;
+  margin: 0 auto;
+
 }
 
 .growth-title,
@@ -268,8 +273,10 @@
 
 .growth-images img,
 .quality-images img {
-  width: 120px;
-  height: 120px;
+  margin: 0 auto;
+  border: 1px solid #003eb9;
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 4px;
 }

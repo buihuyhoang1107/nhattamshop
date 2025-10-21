@@ -48,25 +48,25 @@ const Overview: React.FC<OverviewProps> = ({
         <div className="showcase-grid">
           <div className="showcase-item">
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
+              src="/img/imgi_50_gif.gif"
               alt="Hair result 1"
             />
           </div>
           <div className="showcase-item">
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
+               src="/img/imgi_51_gif.gif"
               alt="Hair result 2"
             />
           </div>
           <div className="showcase-item">
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
+             src="/img/imgi_52_gif.gif"
               alt="Hair result 2"
             />
           </div>
           <div className="showcase-item">
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
+              src="/img/imgi_53_gif.gif"
               alt="Hair result 2"
             />
           </div>
@@ -117,12 +117,12 @@ const Overview: React.FC<OverviewProps> = ({
           </p>
           <div className="growth-images">
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
+              src="/img/imgi_61_gif.gif"
               alt="Before treatment"
             />
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
-              alt="After treatment"
+              src="/img/imgi_61_gif.gif"
+              alt="Before treatment"
             />
           </div>
         </div>
@@ -143,11 +143,11 @@ const Overview: React.FC<OverviewProps> = ({
           </div>
           <div className="quality-images">
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
+              src="/img/imgi_59_gif.gif"
               alt="Hair thickness before"
             />
             <img
-              src="/img/imgi_3_photo-1663835452025-1d140874c4e2.jpg"
+              src="/img/imgi_60_gif.gif"
               alt="Hair thickness after"
             />
           </div>
