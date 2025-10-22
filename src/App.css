@@ -34,6 +34,7 @@ body {
   min-height: 100vh;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   position: relative;
+  padding-top: 120px; /* Thêm padding-top để tránh bị header che */
 }
 
 /* Global button styles */
@@ -89,7 +90,10 @@ body {
 }
 
 /* Prevent horizontal scroll on small devices */
-html, body, #root, .App {
+html,
+body,
+#root,
+.App {
   overflow-x: hidden;
 }
 
@@ -188,6 +192,14 @@ body {
     max-width: 100%;
     margin: 0;
     box-shadow: none;
+    padding-top: 60px; /* Giảm padding cho mobile */
+  }
+}
+
+/* Responsive design for tablet */
+@media (max-width: 768px) {
+  .App {
+    padding-top: 70px; /* Giảm padding cho tablet */
   }
 }
 

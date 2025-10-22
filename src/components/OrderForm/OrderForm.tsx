@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { ProductPackage, CustomerInfo } from "../../types";
 import {
-  getProvinces,
   getDistrictsByProvince,
+  getProvinces,
   getWardsByDistrict,
 } from "../../data/vietnamAddresses";
-import { 
+import {
   initializeEmailJS,
-  sendOrderConfirmation, 
+  OrderEmailData,
   sendAdminNotification,
-  OrderEmailData 
+  sendOrderConfirmation
 } from "../../services/emailService";
+import { CustomerInfo, ProductPackage } from "../../types";
 import "./OrderForm.css";
 
 interface OrderFormProps {

@@ -121,7 +121,7 @@ const Overview: React.FC<OverviewProps> = ({
               alt="Before treatment"
             />
             <img
-              src="/img/imgi_61_gif.gif"
+              src="/img/imgi_62_gif.gif"
               alt="Before treatment"
             />
           </div>
