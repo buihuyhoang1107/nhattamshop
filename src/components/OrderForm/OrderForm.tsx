@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
-import { ProductPackage, CustomerInfo } from '../../types';
-import './OrderForm.css';
+import React, { useState } from "react";
+import { ProductPackage, CustomerInfo } from "../../types";
+import {
+  getProvinces,
+  getDistrictsByProvince,
+  getWardsByDistrict,
+} from "../../data/vietnamAddresses";
+import "./OrderForm.css";
 
 interface OrderFormProps {
   packages: ProductPackage[];
@@ -17,24 +22,46 @@ const OrderForm: React.FC<OrderFormProps> = ({
   onPackageSelect,
   onSubmit,
   showHeader = false,
-  showCountdown = false
+  showCountdown = false,
 }) => {
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
-    fullName: '',
-    phone: '',
-    address: '',
-    province: '',
-    district: '',
-    ward: '',
-    email: ''
+    fullName: "",
+    phone: "",
+    address: "",
+    province: "",
+    district: "",
+    ward: "",
+    email: "",
   });
+
+  const [availableDistricts, setAvailableDistricts] = useState<any[]>([]);
+  const [availableWards, setAvailableWards] = useState<any[]>([]);
+  const [provinces, setProvinces] = useState<any[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
+
+  // Load provinces on component mount
+  React.useEffect(() => {
+    const loadProvinces = async () => {
+      setLoading(true);
+      try {
+        const provincesData = await getProvinces();
+        setProvinces(provincesData);
+      } catch (error) {
+        console.error("Error loading provinces:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadProvinces();
+  }, []);
 
   React.useEffect(() => {
     if (showCountdown) {
@@ -42,18 +69,20 @@ const OrderForm: React.FC<OrderFormProps> = ({
         const now = new Date();
         const endOfDay = new Date();
         endOfDay.setHours(23, 59, 59, 999);
-        
+
         const timeDiff = endOfDay.getTime() - now.getTime();
-        
+
         if (timeDiff <= 0) {
           return { days: 0, hours: 0, minutes: 0, seconds: 0 };
         }
-        
+
         const days = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const hours = Math.floor(
+          (timeDiff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
         const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
-        
+
         return { days, hours, minutes, seconds };
       };
 
@@ -69,11 +98,50 @@ const OrderForm: React.FC<OrderFormProps> = ({
     }
   }, [showCountdown]);
 
-  const handleInputChange = (field: keyof CustomerInfo, value: string) => {
-    setCustomerInfo(prev => ({
-      ...prev,
-      [field]: value
-    }));
+  const handleInputChange = async (
+    field: keyof CustomerInfo,
+    value: string
+  ) => {
+    setCustomerInfo((prev) => {
+      const newInfo = {
+        ...prev,
+        [field]: value,
+      };
+
+      // Handle province change
+      if (field === "province") {
+        setLoading(true);
+        getDistrictsByProvince(value)
+          .then((districts) => {
+            setAvailableDistricts(districts);
+            setAvailableWards([]);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error("Error loading districts:", error);
+            setLoading(false);
+          });
+        newInfo.district = "";
+        newInfo.ward = "";
+      }
+
+      // Handle district change
+      if (field === "district") {
+        setLoading(true);
+        getWardsByDistrict(value)
+          .then((wards) => {
+            setAvailableWards(wards);
+            setLoading(false);
+          })
+          .catch((error) => {
+            console.error("Error loading wards:", error);
+            setLoading(false);
+          });
+        newInfo.ward = "";
+      }
+
+      return newInfo;
+    });
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -90,23 +158,31 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <span className="discount-text">Giảm 40% hôm nay</span>
           </div>
           <p className="sale-text">Siêu Sale Chỉ Diễn Ra Trong</p>
-          
+
           {showCountdown && (
             <div className="countdown-timer">
               <div className="timer-box">
-                <div className="timer-value">{timeLeft.days.toString().padStart(2, '0')}</div>
+                <div className="timer-value">
+                  {timeLeft.days.toString().padStart(2, "0")}
+                </div>
                 <div className="timer-label">Ngày</div>
               </div>
               <div className="timer-box">
-                <div className="timer-value">{timeLeft.hours.toString().padStart(2, '0')}</div>
+                <div className="timer-value">
+                  {timeLeft.hours.toString().padStart(2, "0")}
+                </div>
                 <div className="timer-label">Giờ</div>
               </div>
               <div className="timer-box">
-                <div className="timer-value">{timeLeft.minutes.toString().padStart(2, '0')}</div>
+                <div className="timer-value">
+                  {timeLeft.minutes.toString().padStart(2, "0")}
+                </div>
                 <div className="timer-label">Phút</div>
               </div>
               <div className="timer-box">
-                <div className="timer-value">{timeLeft.seconds.toString().padStart(2, '0')}</div>
+                <div className="timer-value">
+                  {timeLeft.seconds.toString().padStart(2, "0")}
+                </div>
                 <div className="timer-label">Giây</div>
               </div>
             </div>
@@ -120,7 +196,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
           <input
             type="text"
             value={customerInfo.fullName}
-            onChange={(e) => handleInputChange('fullName', e.target.value)}
+            onChange={(e) => handleInputChange("fullName", e.target.value)}
             required
           />
         </div>
@@ -130,7 +206,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
           <input
             type="tel"
             value={customerInfo.phone}
-            onChange={(e) => handleInputChange('phone', e.target.value)}
+            onChange={(e) => handleInputChange("phone", e.target.value)}
             required
           />
         </div>
@@ -140,7 +216,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
           <input
             type="text"
             value={customerInfo.address}
-            onChange={(e) => handleInputChange('address', e.target.value)}
+            onChange={(e) => handleInputChange("address", e.target.value)}
             required
           />
         </div>
@@ -150,13 +226,18 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <label>Tỉnh/Thành phố</label>
             <select
               value={customerInfo.province}
-              onChange={(e) => handleInputChange('province', e.target.value)}
+              onChange={(e) => handleInputChange("province", e.target.value)}
               required
+              disabled={loading}
             >
-              <option value="">Chọn tỉnh/thành phố</option>
-              <option value="hanoi">Hà Nội</option>
-              <option value="hcm">TP. Hồ Chí Minh</option>
-              <option value="danang">Đà Nẵng</option>
+              <option value="">
+                {loading ? "Đang tải..." : "Chọn tỉnh/thành phố"}
+              </option>
+              {provinces.map((province) => (
+                <option key={province.code} value={province.code}>
+                  {province.name}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -164,13 +245,18 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <label>Quận/Huyện</label>
             <select
               value={customerInfo.district}
-              onChange={(e) => handleInputChange('district', e.target.value)}
+              onChange={(e) => handleInputChange("district", e.target.value)}
               required
+              disabled={!customerInfo.province || loading}
             >
-              <option value="">Chọn quận/huyện</option>
-              <option value="quan1">Quận 1</option>
-              <option value="quan2">Quận 2</option>
-              <option value="quan3">Quận 3</option>
+              <option value="">
+                {loading ? "Đang tải..." : "Chọn quận/huyện"}
+              </option>
+              {availableDistricts.map((district) => (
+                <option key={district.code} value={district.code}>
+                  {district.name}
+                </option>
+              ))}
             </select>
           </div>
 
@@ -178,23 +264,28 @@ const OrderForm: React.FC<OrderFormProps> = ({
             <label>Phường/Xã</label>
             <select
               value={customerInfo.ward}
-              onChange={(e) => handleInputChange('ward', e.target.value)}
+              onChange={(e) => handleInputChange("ward", e.target.value)}
               required
+              disabled={!customerInfo.district || loading}
             >
-              <option value="">Chọn phường/xã</option>
-              <option value="phuong1">Phường 1</option>
-              <option value="phuong2">Phường 2</option>
-              <option value="phuong3">Phường 3</option>
+              <option value="">
+                {loading ? "Đang tải..." : "Chọn phường/xã"}
+              </option>
+              {availableWards.map((ward) => (
+                <option key={ward.code} value={ward.code}>
+                  {ward.name}
+                </option>
+              ))}
             </select>
           </div>
         </div>
 
         <div className="form-group">
-          <label>NHẬP EMAIL TẠI ĐÂY ĐỂ NHẬN QUÀ TẶNG ĐẶC BIỆT</label>
+          <label>NHẬP EMAIL TẠI ĐÂY ĐỂ NHẬN QUÀ TẶNG</label>
           <input
             type="email"
             value={customerInfo.email}
-            onChange={(e) => handleInputChange('email', e.target.value)}
+            onChange={(e) => handleInputChange("email", e.target.value)}
             required
           />
         </div>
@@ -202,9 +293,11 @@ const OrderForm: React.FC<OrderFormProps> = ({
         <div className="packages-section">
           <h3>Chọn gói sản phẩm</h3>
           {packages.map((pkg) => (
-            <div 
-              key={pkg.id} 
-              className={`package-option ${selectedPackage === pkg.id ? 'selected' : ''}`}
+            <div
+              key={pkg.id}
+              className={`package-option ${
+                selectedPackage === pkg.id ? "selected" : ""
+              }`}
               onClick={() => onPackageSelect(pkg.id)}
             >
               <input
@@ -218,8 +311,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
                 <span className="package-name">{pkg.name}</span>
                 <div className="package-badges">
                   {pkg.isHot && <span className="hot-badge">HOT</span>}
-                  {pkg.isSuperDeal && <span className="super-deal-badge">SIÊU HỜI</span>}
-                  {pkg.isFreeship && <span className="freeship-badge">FREESHIP</span>}
+                  {pkg.isSuperDeal && (
+                    <span className="super-deal-badge">SIÊU HỜI</span>
+                  )}
+                  {pkg.isFreeship && (
+                    <span className="freeship-badge">FREESHIP</span>
+                  )}
                 </div>
               </div>
             </div>

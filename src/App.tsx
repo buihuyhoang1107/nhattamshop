@@ -245,7 +245,7 @@ const App: React.FC = () => {
       price: 695000,
       isHot: true,
       isSuperDeal: false,
-      isFreeship: true,
+      isFreeship: false,
       description: "Gói combo với dầu gội, dầu xả và xịt phục hồi",
     },
     {
@@ -254,13 +254,13 @@ const App: React.FC = () => {
       price: 895000,
       isHot: true,
       isSuperDeal: false,
-      isFreeship: true,
+      isFreeship: false,
       description:
         "Gói tiết kiệm với 2 chai dầu gội, 1 chai dầu xả và tặng xịt phục hồi",
     },
     {
       id: "CB4",
-      name: "CB4: 2 GỘI + 2 HẤP TẶNG 1 XỊT PHỤC HỒI (1240K - FREESHIP) HOT SIÊU HỜI",
+      name: "CB4: 2 GỘI + 2 HẤP TẶNG 1 XỊT 275k (1240K - FREESHIP)",
       price: 1240000,
       isHot: true,
       isSuperDeal: true,
@@ -271,9 +271,18 @@ const App: React.FC = () => {
       id: "CB5",
       name: "KHÁCH QUEN MUA 5 CẶP TẶNG 1 CẶP + 3 XỊT PHỤC HỒI (3120K + FREE SHIP)",
       price: 3120000,
-      isHot: true,
-      isSuperDeal: true,
+      isHot: false,
+      isSuperDeal: false,
       isFreeship: true,
+      description: "Gói siêu tiết kiệm với đầy đủ sản phẩm",
+    },
+    {
+      id: "CB6",
+      name: "XỊT SỐ 3 - TẶNG KIT DẦU GỘI (275K)",
+      price: 275000,
+      isHot: false,
+      isSuperDeal: false,
+      isFreeship: false,
       description: "Gói siêu tiết kiệm với đầy đủ sản phẩm",
     },
   ];
@@ -313,11 +322,19 @@ const App: React.FC = () => {
 
   return (
     <>
-      <Header tabs={tabs} activeTab={activeTab} onTabClick={handleTabClick} />
+      <Header
+        tabs={tabs}
+        activeTab={activeTab}
+        onTabClick={handleTabClick}
+        onOrderModalOpen={() => setIsOrderModalOpen(true)}
+      />
       <div className="App">
         <ProductSlide images={productImages} />
 
-        <ProductInfo product={product} />
+        <ProductInfo
+          product={product}
+          onOrderModalOpen={() => setIsOrderModalOpen(true)}
+        />
 
         <Overview
           hairProblems={hairProblems}

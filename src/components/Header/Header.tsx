@@ -8,9 +8,10 @@ interface HeaderProps {
   tabs: NavigationTab[];
   activeTab: string;
   onTabClick: (tabId: string) => void;
+  onOrderModalOpen: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick }) => {
+const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick, onOrderModalOpen }) => {
   return (
     <header className="header">
       <div className="header-top">
@@ -19,9 +20,9 @@ const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick }) => {
           <span className="search-text">Dầu gội MQG</span>
         </div>
         <div className="header-actions">
-          <button className="action-btn"><FontAwesomeIcon icon={faShare} /></button>
-          <button className="action-btn"><FontAwesomeIcon icon={faCartShopping} /></button>
-          <button className="action-btn"><FontAwesomeIcon icon={faEllipsis} /></button>
+          <button className="action-btn" onClick={onOrderModalOpen}><FontAwesomeIcon icon={faShare} /></button>
+          <button className="action-btn" onClick={onOrderModalOpen}><FontAwesomeIcon icon={faCartShopping} /></button>
+          <button className="action-btn" onClick={onOrderModalOpen}><FontAwesomeIcon icon={faEllipsis} /></button>
         </div>
       </div>
       

@@ -18,11 +18,6 @@ const Suggestions: React.FC<SuggestionsProps> = ({
 }) => {
   return (
     <div id="suggestions" className="suggestions">
-      <div className="suggestions-header">
-        <h2>Gợi ý sản phẩm</h2>
-        <p>Chọn gói sản phẩm phù hợp với nhu cầu của bạn</p>
-      </div>
-
       <OrderForm
         packages={packages}
         selectedPackage={selectedPackage}
@@ -31,6 +26,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({
         showHeader={true}
         showCountdown={true}
       />
+      <div style={{ height: "60px" }}></div>
     </div>
   );
 };

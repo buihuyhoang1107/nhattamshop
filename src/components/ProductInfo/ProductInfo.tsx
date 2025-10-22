@@ -1,14 +1,26 @@
 import React from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTruck, faTrophy, faCreditCard, faArrowsRotate, faComments, faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTruck,
+  faTrophy,
+  faCreditCard,
+  faArrowsRotate,
+  faComments,
+  faArrowRight,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
 import { Product } from "../../types";
 import "./ProductInfo.css";
 
 interface ProductInfoProps {
   product: Product;
+  onOrderModalOpen: () => void;
 }
 
-const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
+const ProductInfo: React.FC<ProductInfoProps> = ({
+  product,
+  onOrderModalOpen,
+}) => {
   return (
     <div className="product-info">
       <div className="product-badges">
@@ -98,7 +110,9 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
         <p>Trả hàng trong vòng 3 ngày. Kiểm tra hàng trước khi thanh toán</p>
       </div>
       <div>
-        <button className="buy-now-btn">Mua Ngay</button>
+        <button className="buy-now-btn" onClick={onOrderModalOpen}>
+          Mua Ngay
+        </button>
       </div>
     </div>
   );

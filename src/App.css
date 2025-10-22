@@ -104,21 +104,47 @@ html, body, #root, .App {
 }
 
 /* Contextual colors using existing classNames applied on <FontAwesomeIcon /> */
-.stars { color: #f1c40f; }
-.shipping-icon { color: rgb(15, 195, 193); }
-.trophy-icon { color: #f1c40f; }
-.feature-icon { color: #e74c3c; }
-.arrow { color: #999; }
-.search-icon { color: #e74c3c; }
-.footer-icon { color: #333; }
-.chat-icon { color: #27ae60; }
-.benefit-icon { color: #e74c3c; }
-.offer-icon { color: #f39c12; }
-.discount-icon { color: #fff; }
+.stars {
+  color: #f1c40f;
+}
+.shipping-icon {
+  color: rgb(15, 195, 193);
+}
+.trophy-icon {
+  color: #f1c40f;
+}
+.feature-icon {
+  color: #e74c3c;
+}
+.arrow {
+  color: #999;
+}
+.search-icon {
+  color: #e74c3c;
+}
+.footer-icon {
+  color: #333;
+}
+.chat-icon {
+  color: #27ae60;
+}
+.benefit-icon {
+  color: #e74c3c;
+}
+.offer-icon {
+  color: #f39c12;
+}
+.discount-icon {
+  color: #fff;
+}
 
 /* Hover states for header action buttons */
-.action-btn svg { color: #333; }
-.action-btn:hover svg { color: #e74c3c; }
+.action-btn svg {
+  color: #333;
+}
+.action-btn:hover svg {
+  color: #e74c3c;
+}
 
 /* Global responsive sizing for icons on very small devices */
 @media (max-width: 421px) {
