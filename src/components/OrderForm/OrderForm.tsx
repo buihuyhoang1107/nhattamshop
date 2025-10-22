@@ -163,14 +163,19 @@ const OrderForm: React.FC<OrderFormProps> = ({
       return;
     }
     
-    // Prepare email data
+    // Prepare email data - Convert codes to names (fix type mismatch)
+    const provinceName = provinces.find(p => p.code.toString() === customerInfo.province)?.name || customerInfo.province;
+    const districtName = availableDistricts.find(d => d.code.toString() === customerInfo.district)?.name || customerInfo.district;
+    const wardName = availableWards.find(w => w.code.toString() === customerInfo.ward)?.name || customerInfo.ward;
+    
+    
     const orderEmailData: OrderEmailData = {
       customerName: customerInfo.fullName,
       customerPhone: customerInfo.phone,
       customerAddress: customerInfo.address,
-      customerProvince: customerInfo.province,
-      customerDistrict: customerInfo.district,
-      customerWard: customerInfo.ward,
+      customerProvince: provinceName,
+      customerDistrict: districtName,
+      customerWard: wardName,
       customerEmail: customerInfo.email,
       selectedPackage: selectedPackage,
       packageName: selectedPkg.name,
