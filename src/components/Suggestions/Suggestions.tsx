@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGift } from '@fortawesome/free-solid-svg-icons';
 import { ProductPackage } from '../../types';
 import './Suggestions.css';
 
@@ -61,7 +63,7 @@ const Suggestions: React.FC<SuggestionsProps> = ({
       <div className="special-offer">
         <h3>Ưu đãi đặc biệt</h3>
         <div className="offer-item">
-          <span className="offer-icon">🎁</span>
+          <FontAwesomeIcon className="offer-icon" icon={faGift} />
           <span>Khách quen mua 5 cặp tặng 1 cặp + 3 xịt phục hồi</span>
         </div>
       </div>

@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTruck, faTrophy, faCreditCard, faArrowsRotate, faComments, faArrowRight, faStar } from '@fortawesome/free-solid-svg-icons';
 import { Product } from "../../types";
 import "./ProductInfo.css";
 
@@ -17,37 +19,37 @@ const ProductInfo: React.FC<ProductInfoProps> = ({ product }) => {
 
       <div className="product-rating">
         <div className="rating-info">
-          <span className="stars">⭐</span>
+          <FontAwesomeIcon className="stars" icon={faStar} />
           <span className="rating-score">{product.rating}/5</span>
           <span className="review-count">({product.reviewCount})</span>
         </div>
         <div className="sold-info">| Đã bán {product.soldCount}</div>
-        <span className="shipping-icon">🚚</span>
+        <FontAwesomeIcon className="shipping-icon" icon={faTruck} />
         <span className="shipping-text">Miễn phí vận chuyển</span>
       </div>
 
       {product.isTopProduct && (
         <div className="top-product-banner">
-          <span className="trophy-icon">🏆</span>
+          <FontAwesomeIcon className="trophy-icon" icon={faTrophy} />
           <span className="banner-text">Sản phẩm hàng đầu</span>
           <span>- Chăm sóc & phục hồi tóc hiệu quả</span>
-          <span className="arrow">→</span>
+          <FontAwesomeIcon className="arrow" icon={faArrowRight} />
         </div>
       )}
 
       <div className="product-features">
         <div className="feature-item">
-          <span className="feature-icon">💳</span>
+          <FontAwesomeIcon className="feature-icon" icon={faCreditCard} />
           <span>Thanh toán bảo mật</span>
         </div>
         <div className="feature-item">
-          <span className="feature-icon">🔄</span>
+          <FontAwesomeIcon className="feature-icon" icon={faArrowsRotate} />
           <span>Đổi trả dễ dàng</span>
         </div>
         <div className="feature-item">
-          <span className="feature-icon">💬</span>
+          <FontAwesomeIcon className="feature-icon" icon={faComments} />
           <span>Đội ngũ hỗ trợ TikTok</span>
-          <span className="arrow">→</span>
+          <FontAwesomeIcon className="arrow" icon={faArrowRight} />
         </div>
       </div>
 

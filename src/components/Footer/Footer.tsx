@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStore, faPhone } from '@fortawesome/free-solid-svg-icons';
 import './Footer.css';
 
 interface FooterProps {
@@ -18,12 +20,12 @@ const Footer: React.FC<FooterProps> = ({
     <footer className="footer">
       <div className="footer-left">
         <button className="footer-btn" onClick={onStoreClick}>
-          <span className="footer-icon">🏪</span>
+          <FontAwesomeIcon className="footer-icon" icon={faStore} />
           <span className="footer-text">Cửa hàng</span>
         </button>
         
         <button className="footer-btn" onClick={onChatClick}>
-          <span className="footer-icon chat-icon">📞</span>
+          <FontAwesomeIcon className="footer-icon chat-icon" icon={faPhone} />
           <span className="footer-text">Trò chuyện</span>
         </button>
       </div>

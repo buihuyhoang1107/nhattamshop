@@ -149,6 +149,13 @@
 
 .offer-icon {
   font-size: 16px;
+  color: #f39c12;
+}
+
+@media (max-width: 421px) {
+  .offer-icon {
+    font-size: 14px;
+  }
 }
 
 .recommendations h3 {

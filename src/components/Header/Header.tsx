@@ -1,4 +1,6 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faShare, faCartShopping, faEllipsis } from '@fortawesome/free-solid-svg-icons';
 import { NavigationTab } from '../../types';
 import './Header.css';
 
@@ -13,13 +15,13 @@ const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick }) => {
     <header className="header">
       <div className="header-top">
         <div className="search-bar">
-          <span className="search-icon">🔍</span>
+          <FontAwesomeIcon className="search-icon" icon={faSearch} />
           <span className="search-text">Dầu gội MQG</span>
         </div>
         <div className="header-actions">
-          <button className="action-btn">📤</button>
-          <button className="action-btn">🛒</button>
-          <button className="action-btn">⋯</button>
+          <button className="action-btn"><FontAwesomeIcon icon={faShare} /></button>
+          <button className="action-btn"><FontAwesomeIcon icon={faCartShopping} /></button>
+          <button className="action-btn"><FontAwesomeIcon icon={faEllipsis} /></button>
         </div>
       </div>
       

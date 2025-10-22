@@ -88,14 +88,52 @@ body {
   background: #f0f0f0;
 }
 
-/* Ensure all content fits within 421px */
-* {
-  max-width: 421px;
+/* Prevent horizontal scroll on small devices */
+html, body, #root, .App {
+  overflow-x: hidden;
 }
 
-/* Override for specific elements that need full width within container */
-.App * {
-  max-width: none;
+/* Global icon styles (Font Awesome) */
+.svg-inline--fa {
+  vertical-align: middle;
+}
+
+/* Default icon color */
+.svg-inline--fa {
+  color: #333;
+}
+
+/* Contextual colors using existing classNames applied on <FontAwesomeIcon /> */
+.stars { color: #f1c40f; }
+.shipping-icon { color: rgb(15, 195, 193); }
+.trophy-icon { color: #f1c40f; }
+.feature-icon { color: #e74c3c; }
+.arrow { color: #999; }
+.search-icon { color: #e74c3c; }
+.footer-icon { color: #333; }
+.chat-icon { color: #27ae60; }
+.benefit-icon { color: #e74c3c; }
+.offer-icon { color: #f39c12; }
+.discount-icon { color: #fff; }
+
+/* Hover states for header action buttons */
+.action-btn svg { color: #333; }
+.action-btn:hover svg { color: #e74c3c; }
+
+/* Global responsive sizing for icons on very small devices */
+@media (max-width: 421px) {
+  .stars,
+  .shipping-icon,
+  .trophy-icon,
+  .feature-icon,
+  .arrow,
+  .search-icon,
+  .footer-icon,
+  .benefit-icon,
+  .offer-icon,
+  .discount-icon {
+    font-size: 14px;
+  }
 }
 
 /* Force center alignment */

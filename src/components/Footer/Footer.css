@@ -38,10 +38,17 @@
 
 .footer-icon {
   font-size: 20px;
+  color: #333;
 }
 
 .chat-icon {
   color: #27ae60;
+}
+
+@media (max-width: 421px) {
+  .footer-icon {
+    font-size: 18px;
+  }
 }
 
 .footer-text {

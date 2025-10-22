@@ -22,15 +22,16 @@
   display: flex;
   align-items: center;
   background: #f8f9fa;
-  border-radius: 20px;
+  border-radius: 10px;
   padding: 8px 12px;
   flex: 1;
-  max-width: 200px;
+  max-width: 300px;
 }
 
 .search-icon {
   margin-right: 8px;
   font-size: 16px;
+  color: #e74c3c;
 }
 
 .search-text {
@@ -51,6 +52,23 @@
   padding: 4px;
   border-radius: 4px;
   transition: background-color 0.2s;
+}
+
+.action-btn svg {
+  color: #333;
+}
+
+.action-btn:hover svg {
+  color: #e74c3c;
+}
+
+@media (max-width: 421px) {
+  .search-icon {
+    font-size: 14px;
+  }
+  .action-btn {
+    font-size: 16px;
+  }
 }
 
 .action-btn:hover {

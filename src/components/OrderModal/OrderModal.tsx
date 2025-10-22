@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPercent } from '@fortawesome/free-solid-svg-icons';
 import { ProductPackage, CustomerInfo } from '../../types';
 import './OrderModal.css';
 
@@ -76,7 +78,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
         <div className="modal-header">
           <h2>MQG – BÍ QUYẾT PHỤC HỒI VÀ MỌC TÓC CHUYÊN SÂU</h2>
           <div className="discount-banner">
-            <span className="discount-icon">%</span>
+            <FontAwesomeIcon className="discount-icon" icon={faPercent} />
             <span className="discount-text">Giảm 40% hôm nay</span>
           </div>
           <p className="sale-text">Siêu Sale Chỉ Diễn Ra Trong</p>

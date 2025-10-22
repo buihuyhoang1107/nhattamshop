@@ -1,5 +1,5 @@
 .product-info {
-  padding: 16px 12px;
+  padding: 16px 8px;
   background: white;
   margin-top: 0;
   max-width: 421px;
@@ -54,6 +54,8 @@
 
 .stars {
   font-size: 16px;
+  color: #f1c40f;
+  vertical-align: middle;
 }
 
 .rating-score {
@@ -77,6 +79,7 @@
 
 .shipping-icon {
   font-size: 16px;
+  color: rgb(15, 195, 193);
 }
 
 .top-product-banner {
@@ -85,11 +88,12 @@
   background: rgba(255, 242, 231, 1);
   padding: 5px;
   border-radius: 8px;
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .trophy-icon {
   font-size: 20px;
+  color: #f1c40f;
 }
 
 .banner-text {
@@ -100,7 +104,7 @@
 }
 
 .arrow {
-  color: #666;
+  color: #999;
   font-size: 16px;
 }
 
@@ -109,7 +113,7 @@
   flex-wrap: wrap;
   gap: 4px;
   background: rgba(229, 231, 235, 0.87);
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 .feature-item {
@@ -122,6 +126,17 @@
 
 .feature-icon {
   font-size: 16px;
+  color: #e74c3c;
+}
+
+@media (max-width: 421px) {
+  .stars,
+  .shipping-icon,
+  .trophy-icon,
+  .feature-icon,
+  .arrow {
+    font-size: 14px;
+  }
 }
 
 .section-title {
@@ -150,8 +165,6 @@
   border-color: #e74c3c;
 }
 
-.payment-section {
-}
 
 .cod-badge {
   display: inline-block;
@@ -202,8 +215,6 @@
   font-weight: bold;
 }
 
-.shipping-rules {
-}
 
 .shipping-rules p {
   margin: 4px 0;
@@ -218,8 +229,6 @@
   margin: 4px 0;
 }
 
-.return-policy {
-}
 
 .return-policy p {
   font-size: 14px;
