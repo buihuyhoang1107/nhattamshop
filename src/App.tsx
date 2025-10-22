@@ -1,23 +1,23 @@
 import React, { useState } from "react";
 import "./App.css";
-import Header from "./components/Header/Header";
-import ProductSlide from "./components/ProductSlide/ProductSlide";
-import ProductInfo from "./components/ProductInfo/ProductInfo";
-import Overview from "./components/Overview/Overview";
-import Reviews from "./components/Reviews/Reviews";
 import Description from "./components/Description/Description";
-import Suggestions from "./components/Suggestions/Suggestions";
 import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
 import OrderModal from "./components/OrderModal/OrderModal";
+import Overview from "./components/Overview/Overview";
+import ProductInfo from "./components/ProductInfo/ProductInfo";
+import ProductSlide from "./components/ProductSlide/ProductSlide";
+import Reviews from "./components/Reviews/Reviews";
+import Suggestions from "./components/Suggestions/Suggestions";
 import { useScrollToSection } from "./hooks/useScrollToSection";
 import {
-  Product,
-  Review,
-  HairProblem,
-  ProductBenefit,
   Certification,
-  ProductPackage,
   CustomerInfo,
+  HairProblem,
+  Product,
+  ProductBenefit,
+  ProductPackage,
+  Review,
 } from "./types";
 
 const App: React.FC = () => {
@@ -45,12 +45,12 @@ const App: React.FC = () => {
   // Product images for slide
   const productImages = [
     "/img/slide_img1.jpg",
-    "/img/slide_img2.jpg", 
+    "/img/slide_img2.jpg",
     "/img/slide_img3.jpg",
     "/img/slide_img4.jpg",
     "/img/slide_img5.jpg",
     "/img/slide_img6.jpg",
-    "/img/slide_img7.jpg"
+    "/img/slide_img7.jpg",
   ];
 
   // Product data
@@ -87,21 +87,21 @@ const App: React.FC = () => {
       title: "Tóc mỏng",
       description:
         "Tóc mỏng lộ da đầu – mất tự tin, ngại giao tiếp, ngại cả nhìn chính mình trong gương.",
-        image: "/img/problems-grid2.png",
+      image: "/img/problems-grid2.png",
     },
     {
       id: "3",
       title: "Thử nhiều sản phẩm",
       description:
         "Đã thử đủ loại dầu gội – nhưng tóc vẫn khô, rụng, chẳng thấy gì khá hơn.",
-        image: "/img/problems-grid3.png",
+      image: "/img/problems-grid3.png",
     },
     {
       id: "4",
       title: "Tóc khô xơ",
       description:
         "Tóc khô xơ, chẻ ngọn, xù rối – nhìn già hơn tuổi thật, mất hẳn sức sống",
-        image: "/img/problems-grid4.png",
+      image: "/img/problems-grid4.png",
     },
   ];
 
@@ -124,7 +124,7 @@ const App: React.FC = () => {
     {
       id: "1",
       userName: "Tr** N***g",
-      userAvatar: "/img/slide_2.jpg",
+      userAvatar: "/img/khach0.jpg",
       rating: 5,
       itemDetail: "1 cặp",
       comment:
@@ -139,13 +139,13 @@ const App: React.FC = () => {
     {
       id: "2",
       userName: "L* N***n",
-      userAvatar: "/img/slide_2.jpg",
+      userAvatar: "/img/khach7.jpg",
       rating: 5,
       itemDetail: "2 cặp",
       comment:
         "Đúng như anh Tâm giới thiệu, quá nhiều tính năng, phục hồi, kích mọc, lại còn trị gàu, quá đỉnh nhaaaaa <3",
       images: [
-        "/img/imgi_77_jpeg.jpg", 
+        "/img/imgi_77_jpeg.jpg",
         "/img/imgi_78_jpeg.jpg",
         "/img/imgi_79_jpeg.jpg",
       ],
@@ -154,12 +154,61 @@ const App: React.FC = () => {
     {
       id: "3",
       userName: "T***h T**g",
-      userAvatar: "/img/slide_2.jpg",
+      userAvatar: "/img/khach2.jpg",
       rating: 5,
       itemDetail: "1 cặp",
       comment: "Sản phẩm rất tốt, tóc mọc nhiều hơn sau 1 tháng sử dụng",
-      images: ["/img/imgi_82_jpeg.jpg","/img/imgi_83_jpeg.jpg","/img/imgi_84_jpeg.jpg"],
+      images: [
+        "/img/imgi_82_jpeg.jpg",
+        "/img/imgi_83_jpeg.jpg",
+        "/img/imgi_84_jpeg.jpg",
+      ],
       date: "2024-01-13",
+    },
+    {
+      id: "4",
+      userName: "M** T***n",
+      userAvatar: "/img/khach3.jpg",
+      rating: 5,
+      itemDetail: "3 cặp",
+      comment:
+        "Đợt chồng mình lo làm việc nên tóc rụng muốn hói cả đầu. Mình mua ngay cho chồng 3 hộp để sài dần. Hôm nay thấy chồng nhìn trẻ ra hẳn. Đánh giá 5 sao cho sản phẩm",
+      images: [
+        "/img/imgi_85_jpeg.jpg",
+        "/img/imgi_86_jpeg.jpg",
+        "/img/imgi_87_jpeg.jpg",
+      ],
+      date: "2024-01-12",
+    },
+    {
+      id: "5",
+      userName: "H** L***n",
+      userAvatar: "/img/khach4.jpg",
+      rating: 5,
+      itemDetail: "2 cặp",
+      comment:
+        "Eo ơi k nghĩ giá này mà được cặp gội xịn như vậy, cả gội cả hấp, bình thường hấp tại salon đã 500k rùi. Đỉnh nha",
+      images: [
+        "/img/imgi_88_jpeg.jpg",
+        "/img/imgi_89_jpeg.jpg",
+        "/img/imgi_90_png.png",
+      ],
+      date: "2024-01-11",
+    },
+    {
+      id: "6",
+      userName: "N** T***m",
+      userAvatar: "/img/khach7.jpg",
+      rating: 5,
+      itemDetail: "1 cặp",
+      comment:
+        "Tóc mình trước đây rất yếu và hay rụng. Sau khi dùng MQG được 3 tuần, tóc đã chắc khỏe hơn nhiều. Cảm ơn anh Tâm!",
+      images: [
+        "/img/imgi_78_jpeg.jpg",
+        "/img/imgi_79_jpeg.jpg",
+        "/img/imgi_80_jpeg.jpg",
+      ],
+      date: "2024-01-10",
     },
   ];
 
@@ -183,7 +232,7 @@ const App: React.FC = () => {
   const packages: ProductPackage[] = [
     {
       id: "CB1",
-      name: "1 GỘI + 1 HẤP (620K)",
+      name: "CB1: 1 GỘI + 1 HẤP (620K)",
       price: 620000,
       isHot: false,
       isSuperDeal: false,
@@ -192,7 +241,7 @@ const App: React.FC = () => {
     },
     {
       id: "CB2",
-      name: "1 GỘI + 1 HẤP + 1 XỊT PHỤC HỒI (695K - FREESHIP) HOT",
+      name: "CB2: 1 GỘI + 1 HẤP + 1 XỊT PHỤC HỒI (695K - FREESHIP) HOT",
       price: 695000,
       isHot: true,
       isSuperDeal: false,
@@ -201,7 +250,7 @@ const App: React.FC = () => {
     },
     {
       id: "CB3",
-      name: "2 GỘI + 1 HẤP TẶNG 1 XỊT PHỤC HỒI (895K - FREESHIP) HOT",
+      name: "CB3: 2 GỘI + 1 HẤP TẶNG 1 XỊT PHỤC HỒI (895K - FREESHIP) HOT",
       price: 895000,
       isHot: true,
       isSuperDeal: false,
@@ -211,8 +260,17 @@ const App: React.FC = () => {
     },
     {
       id: "CB4",
-      name: "2 GỘI + 2 HẤP TẶNG 1 XỊT PHỤC HỒI (1240K - FREESHIP) HOT SIÊU HỜI",
+      name: "CB4: 2 GỘI + 2 HẤP TẶNG 1 XỊT PHỤC HỒI (1240K - FREESHIP) HOT SIÊU HỜI",
       price: 1240000,
+      isHot: true,
+      isSuperDeal: true,
+      isFreeship: true,
+      description: "Gói siêu tiết kiệm với đầy đủ sản phẩm",
+    },
+    {
+      id: "CB5",
+      name: "KHÁCH QUEN MUA 5 CẶP TẶNG 1 CẶP + 3 XỊT PHỤC HỒI (3120K + FREE SHIP)",
+      price: 3120000,
       isHot: true,
       isSuperDeal: true,
       isFreeship: true,
@@ -269,11 +327,11 @@ const App: React.FC = () => {
 
         <Reviews reviews={reviews} overallRating={4.9} totalReviews={1628} />
 
-
         <Suggestions
           packages={packages}
           onPackageSelect={handlePackageSelect}
           selectedPackage={selectedPackage}
+          onSubmit={handleOrderSubmit}
         />
 
         <Footer

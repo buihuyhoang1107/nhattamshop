@@ -1,5 +1,5 @@
 .footer {
-  position: relative;
+  position: fixed;
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -106,21 +106,21 @@
   .footer {
     padding: 8px 12px;
   }
-  
+
   .footer-left {
     gap: 16px;
   }
-  
+
   .footer-right {
     gap: 6px;
   }
-  
+
   .add-to-cart-btn,
   .buy-now-btn {
     padding: 10px 12px;
     font-size: 12px;
   }
-  
+
   .footer-text {
     font-size: 10px;
   }
