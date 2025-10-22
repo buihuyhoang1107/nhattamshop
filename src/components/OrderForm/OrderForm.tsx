@@ -5,6 +5,12 @@ import {
   getDistrictsByProvince,
   getWardsByDistrict,
 } from "../../data/vietnamAddresses";
+import { 
+  initializeEmailJS,
+  sendOrderConfirmation, 
+  sendAdminNotification,
+  OrderEmailData 
+} from "../../services/emailService";
 import "./OrderForm.css";
 
 interface OrderFormProps {
@@ -144,9 +150,57 @@ const OrderForm: React.FC<OrderFormProps> = ({
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(customerInfo, selectedPackage);
+    
+    // Initialize EmailJS
+    initializeEmailJS();
+    
+    // Get selected package details
+    const selectedPkg = packages.find(pkg => pkg.id === selectedPackage);
+    if (!selectedPkg) {
+      alert('Vui lòng chọn gói sản phẩm!');
+      return;
+    }
+    
+    // Prepare email data
+    const orderEmailData: OrderEmailData = {
+      customerName: customerInfo.fullName,
+      customerPhone: customerInfo.phone,
+      customerAddress: customerInfo.address,
+      customerProvince: customerInfo.province,
+      customerDistrict: customerInfo.district,
+      customerWard: customerInfo.ward,
+      customerEmail: customerInfo.email,
+      selectedPackage: selectedPackage,
+      packageName: selectedPkg.name,
+      packagePrice: selectedPkg.price,
+      orderDate: new Date().toLocaleString('vi-VN')
+    };
+    
+    try {
+      // Send confirmation email to customer
+      const customerEmailSent = await sendOrderConfirmation(orderEmailData);
+      
+      // Send notification to admin
+      const adminEmailSent = await sendAdminNotification(orderEmailData);
+      
+      if (customerEmailSent && adminEmailSent) {
+        alert('Đặt hàng thành công! Email xác nhận đã được gửi.');
+      } else if (customerEmailSent) {
+        alert('Đặt hàng thành công! Email xác nhận đã được gửi cho khách hàng.');
+      } else {
+        alert('Đặt hàng thành công! Tuy nhiên có lỗi khi gửi email xác nhận.');
+      }
+      
+      // Call original onSubmit
+      onSubmit(customerInfo, selectedPackage);
+      
+    } catch (error) {
+      console.error('Error sending emails:', error);
+      alert('Đặt hàng thành công! Tuy nhiên có lỗi khi gửi email xác nhận.');
+      onSubmit(customerInfo, selectedPackage);
+    }
   };
 
   return (
