@@ -20,8 +20,8 @@
 ```html
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #e74c3c; margin: 0; font-size: 28px;">MQG Store</h1>
-    <p style="color: #666; margin: 5px 0 0 0;">Bí quyết phục hồi và mọc tóc chuyên sâu</p>
+    <h1 style="color: #e74c3c; margin: 0; font-size: 28px;">Long Thành Phát Store</h1>
+    <p style="color: #666; margin: 5px 0 0 0;">Trùm về các sản phẩm mọc râu - mọc tóc tại Việt Nam</p>
   </div>
   
   <h2 style="color: #e74c3c; border-bottom: 2px solid #e74c3c; padding-bottom: 10px;">Xác Nhận Đơn Hàng</h2>
@@ -56,7 +56,7 @@
   <div style="text-align: center; margin: 30px 0;">
     <p style="color: #666; font-size: 14px; margin: 0;">
       Trân trọng,<br>
-      <strong>Đội ngũ MQG Store</strong><br>
+      <strong>Đội ngũ Long Thành Phát Store</strong><br>
       📧 Email: kugayamashusei2000@gmail.com<br>
       📞 Hotline: 1900-xxxx
     </p>
@@ -83,7 +83,7 @@
 ```html
 <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
   <div style="text-align: center; margin-bottom: 30px;">
-    <h1 style="color: #e74c3c; margin: 0; font-size: 28px;">MQG Store - Admin</h1>
+    <h1 style="color: #e74c3c; margin: 0; font-size: 28px;">Long Thành Phát Store - Admin</h1>
     <p style="color: #666; margin: 5px 0 0 0;">Hệ thống thông báo đơn hàng</p>
   </div>
   
@@ -120,7 +120,7 @@
   <div style="text-align: center; margin: 30px 0;">
     <p style="color: #666; font-size: 14px; margin: 0;">
       Hệ thống tự động<br>
-      <strong>MQG Store Admin Panel</strong>
+      <strong>Long Thành Phát Store Admin Panel</strong>
     </p>
   </div>
 </div>

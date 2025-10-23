@@ -100,7 +100,7 @@ const ProductInfo: React.FC<ProductInfoProps> = ({
         </div>
 
         <div className="shipping-details">
-          <p>Giao hàng từ Hà Nội</p>
+          {/* <p>Giao hàng từ Hà Nội</p> */}
           <p>Thời gian giao hàng dự kiến: 2 - 4 ngày</p>
         </div>
       </div>

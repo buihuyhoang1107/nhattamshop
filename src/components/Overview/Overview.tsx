@@ -38,7 +38,7 @@ const Overview: React.FC<OverviewProps> = ({
         <div className="cta-section">
           <div className="arrows">↓↓↓</div>
           <div className="cta-banner">
-            <h3>Hãy sử dụng ngay Dầu gội MQG</h3>
+            <h3>Hãy sử dụng ngay Dầu gội Long Thành Phát</h3>
           </div>
         </div>
       </div>
@@ -47,40 +47,28 @@ const Overview: React.FC<OverviewProps> = ({
       <div className="product-showcase">
         <div className="showcase-grid">
           <div className="showcase-item">
-            <img
-              src="/img/imgi_50_gif.gif"
-              alt="Hair result 1"
-            />
+            <img src="/img/imgi_50_gif.gif" alt="Hair result 1" />
           </div>
           <div className="showcase-item">
-            <img
-               src="/img/imgi_51_gif.gif"
-              alt="Hair result 2"
-            />
+            <img src="/img/imgi_51_gif.gif" alt="Hair result 2" />
           </div>
           <div className="showcase-item">
-            <img
-             src="/img/imgi_58_gif.gif"
-              alt="Hair result 2"
-            />
+            <img src="/img/imgi_58_gif.gif" alt="Hair result 2" />
           </div>
           <div className="showcase-item">
-            <img
-              src="/img/imgi_53_gif.gif"
-              alt="Hair result 2"
-            />
+            <img src="/img/imgi_53_gif.gif" alt="Hair result 2" />
           </div>
         </div>
-        <div className="showcase-logo">
-          <div className="logo-circle">MQG</div>
-        </div>
+        {/* <div className="showcase-logo">
+          <div className="logo-circle">LTP</div>
+        </div> */}
       </div>
 
       {/* Benefits Section */}
       <div className="benefits-section">
         <div className="benefits-title">
           <span className="red-text">LÝ DO KHIẾN BỘ COMBO</span>
-          <span className="black-text">NHÀ MQG ĐƯỢC TIN DÙNG</span>
+          <span className="black-text">NHÀ LONG THÀNH PHÁT ĐƯỢC TIN DÙNG</span>
         </div>
 
         {productBenefits.map((benefit) => (
@@ -116,14 +104,8 @@ const Overview: React.FC<OverviewProps> = ({
             kéo dài.
           </p>
           <div className="growth-images">
-            <img
-              src="/img/imgi_61_gif.gif"
-              alt="Before treatment"
-            />
-            <img
-              src="/img/imgi_62_gif.gif"
-              alt="Before treatment"
-            />
+            <img src="/img/imgi_61_gif.gif" alt="Before treatment" />
+            <img src="/img/imgi_62_gif.gif" alt="Before treatment" />
           </div>
         </div>
       </div>
@@ -134,7 +116,7 @@ const Overview: React.FC<OverviewProps> = ({
           <h3 className="growth-title">TÓC ĐÀN HỒI, DÀY VÀ ĐẸP TỰ NHIÊN</h3>
           <div className="quality-description">
             <p className="quality-highlight">
-              ⚡ Phục hồi tức thì – Hồi sinh mái tóc chỉ sau 1 lần gội!
+              Phục hồi tức thì – Hồi sinh mái tóc chỉ sau 1 lần gội!
             </p>
             <p>
               Không cần chờ đợi nhiều ngày, cảm nhận mái tóc khác biệt ngay từ
@@ -142,14 +124,8 @@ const Overview: React.FC<OverviewProps> = ({
             </p>
           </div>
           <div className="quality-images">
-            <img
-              src="/img/imgi_59_gif.gif"
-              alt="Hair thickness before"
-            />
-            <img
-              src="/img/imgi_60_gif.gif"
-              alt="Hair thickness after"
-            />
+            <img src="/img/imgi_59_gif.gif" alt="Hair thickness before" />
+            <img src="/img/imgi_60_gif.gif" alt="Hair thickness after" />
           </div>
         </div>
       </div>

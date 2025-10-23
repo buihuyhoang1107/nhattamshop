@@ -192,14 +192,14 @@ body {
     max-width: 100%;
     margin: 0;
     box-shadow: none;
-    padding-top: 60px; /* Giảm padding cho mobile */
+    padding-top: 120px; /* Giảm padding cho mobile */
   }
 }
 
 /* Responsive design for tablet */
 @media (max-width: 768px) {
   .App {
-    padding-top: 70px; /* Giảm padding cho tablet */
+    padding-top: 120px; /* Giảm padding cho tablet */
   }
 }
 
@@ -326,6 +326,7 @@ select:focus-visible {
     border: 1px solid #000;
   }
 }
+
 
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {

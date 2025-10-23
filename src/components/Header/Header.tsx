@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick, onOrderMod
       <div className="header-top">
         <div className="search-bar">
           <FontAwesomeIcon className="search-icon" icon={faSearch} />
-          <span className="search-text">Dầu gội MQG</span>
+          <span className="search-text">Dầu gội Long Thành Phát</span>
         </div>
         <div className="header-actions">
           <button className="action-btn" onClick={onOrderModalOpen}><FontAwesomeIcon icon={faShare} /></button>

@@ -106,7 +106,7 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
 
         <div className="product-description">
           <p>
-            MQG là bộ sản phẩm phục hồi – mọc tóc chuyên sâu, ứng dụng công thức
+            Long Thành Phát là bộ sản phẩm phục hồi – mọc tóc chuyên sâu, ứng dụng công thức
             độc quyền từ salon cao cấp, dành cho người rụng tóc, tóc thưa, tóc
             yếu lâu năm.
           </p>
@@ -156,7 +156,7 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
           <div className="story-paragraph">
             <FontAwesomeIcon className="story-icon user-icon" icon={faUser} />
             <p>
-              Tôi là Nhật Tâm – người đàn ông sống với nghề tóc hơn 10 năm. Trong
+              Người đàn ông sống với nghề tóc hơn 10 năm. Trong
               ngần ấy năm, tôi chạm vào hàng ngàn mái đầu… nhưng có những lần chạm
               khiến tôi ám ảnh mãi.
             </p>
@@ -175,7 +175,7 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
             <FontAwesomeIcon className="story-icon heart-icon" icon={faHeart} />
             <p>
               Một cô sinh viên mới 21 tuổi hỏi tôi bằng ánh mắt như muốn khóc:
-              "Anh Tâm… tóc em còn cứu được không ạ?"
+              "Anh ơi, tóc em còn cứu được không ạ?"
             </p>
           </div>
           
@@ -218,11 +218,11 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
           <div className="story-paragraph breakthrough">
             <FontAwesomeIcon className="story-icon fire-icon" icon={faFire} />
             <p>
-              Và rồi MQG ra đời – không phải để nổi tiếng, không phải để chạy
-              quảng cáo. MQG ra đời để phục hồi những mái tóc đang gãy nát, đang
-              giòn như rơm vì hóa chất, stress, sau sinh… MQG ra đời để giúp tóc
+              Và rồi Long Thành Phát ra đời – không phải để nổi tiếng, không phải để chạy
+              quảng cáo. Long Thành Phát ra đời để phục hồi những mái tóc đang gãy nát, đang
+              giòn như rơm vì hóa chất, stress, sau sinh… Long Thành Phát ra đời để giúp tóc
               con mọc lại tại vùng thưa, vùng hói – nơi bạn từng nghĩ là hết hy
-              vọng. MQG ra đời… để bạn nhìn lại mái tóc của mình và nghĩ: "May mà
+              vọng. Long Thành Phát ra đời… để bạn nhìn lại mái tóc của mình và nghĩ: "May mà
               mình chưa bỏ cuộc."
             </p>
           </div>
@@ -230,7 +230,7 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
           <div className="story-paragraph success">
             <FontAwesomeIcon className="story-icon check-icon" icon={faCheckCircle} />
             <p>
-              Hơn 1.000.000 khách hàng đã tin dùng MQG – không phải vì lời
+              Hơn 1.000.000 khách hàng đã tin dùng Long Thành Phát – không phải vì lời
               quảng cáo. Mà vì họ cảm nhận được sự thật lòng trong từng giọt dầu
               gội:
             </p>
@@ -240,8 +240,8 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
             <FontAwesomeIcon className="story-icon check-icon" icon={faCheckCircle} />
             <p>
               Tóc mềm hơn ngay lần đầu gội. Tóc con bắt đầu mọc lên sau vài tuần.
-              Tóc yếu, khô xơ – phục hồi dần từng ngày. MQG không làm phép. MQG
-              không hứa sau 1 đêm. Nhưng MQG được tạo ra bằng nỗi đau thật, trái
+              Tóc yếu, khô xơ – phục hồi dần từng ngày. Long Thành Phát không làm phép. Long Thành Phát
+              không hứa sau 1 đêm. Nhưng Long Thành Phát được tạo ra bằng nỗi đau thật, trái
               tim thật và sự thấu hiểu từ bên trong nghề.
             </p>
           </div>

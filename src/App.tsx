@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import CustomerFeedback from "./components/CustomerFeedback/CustomerFeedback";
 import Description from "./components/Description/Description";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -56,8 +57,9 @@ const App: React.FC = () => {
   // Product data
   const product: Product = {
     id: "1",
-    name: "MQG Shampoo",
-    title: "MQG - Bí quyết phục hồi và mọc tóc chuyên sâu",
+    name: "Long Thành Phát Shampoo",
+    title:
+      "Long Thành Phát - Trùm về các sản phẩm mọc râu - mọc tóc tại Việt Nam",
     rating: 4.9,
     reviewCount: 62.3,
     soldCount: "368.2K",
@@ -128,7 +130,7 @@ const App: React.FC = () => {
       rating: 5,
       itemDetail: "1 cặp",
       comment:
-        "Gội 2 tuần thì thấy tóc bắt đầu mọc lên nhiều, Mùi hoa thơm lâu, quạn trọng k bị gàu và k bết Nhật Tâm mãi đỉnh",
+        "Gội 2 tuần thì thấy tóc bắt đầu mọc lên nhiều, Mùi hoa thơm lâu, quạn trọng k bị gàu và k bết mãi đỉnh",
       images: [
         "/img/imgi_74_jpeg.jpg",
         "/img/imgi_75_jpeg.jpg",
@@ -143,7 +145,7 @@ const App: React.FC = () => {
       rating: 5,
       itemDetail: "2 cặp",
       comment:
-        "Đúng như anh Tâm giới thiệu, quá nhiều tính năng, phục hồi, kích mọc, lại còn trị gàu, quá đỉnh nhaaaaa <3",
+        "Đúng như anh giới thiệu, quá nhiều tính năng, phục hồi, kích mọc, lại còn trị gàu, quá đỉnh nhaaaaa <3",
       images: [
         "/img/imgi_77_jpeg.jpg",
         "/img/imgi_78_jpeg.jpg",
@@ -202,7 +204,7 @@ const App: React.FC = () => {
       rating: 5,
       itemDetail: "1 cặp",
       comment:
-        "Tóc mình trước đây rất yếu và hay rụng. Sau khi dùng MQG được 3 tuần, tóc đã chắc khỏe hơn nhiều. Cảm ơn anh Tâm!",
+        "Tóc mình trước đây rất yếu và hay rụng. Sau khi dùng Long Thành Phát được 3 tuần, tóc đã chắc khỏe hơn nhiều. Cảm ơn anh!",
       images: [
         "/img/imgi_78_jpeg.jpg",
         "/img/imgi_79_jpeg.jpg",
@@ -343,14 +345,13 @@ const App: React.FC = () => {
         <Description certifications={certifications} />
 
         <Reviews reviews={reviews} overallRating={4.9} totalReviews={1628} />
-
+        <CustomerFeedback />
         <Suggestions
           packages={packages}
           onPackageSelect={handlePackageSelect}
           selectedPackage={selectedPackage}
           onSubmit={handleOrderSubmit}
         />
-
         <Footer
           onStoreClick={handleStoreClick}
           onChatClick={handleChatClick}
