@@ -5,7 +5,7 @@ import {
   getWardsByDistrict,
 } from "../../data/vietnamAddresses";
 import {
-  initializeEmailJS,
+  initializeEmailConnection,
   OrderEmailData,
   sendAdminNotification,
   sendOrderConfirmation
@@ -153,8 +153,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Initialize EmailJS
-    initializeEmailJS();
+    // Initialize Email Server connection
+    await initializeEmailConnection();
     
     // Get selected package details
     const selectedPkg = packages.find(pkg => pkg.id === selectedPackage);
