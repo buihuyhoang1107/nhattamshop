@@ -1,13 +1,14 @@
 // src/services/emailService.ts
-// FTP Server configuration
-const FTP_SERVER = 'https://sng104.arandomserver.com:2096/';
-const FTP_USERNAME = 'admin@longthanhphat.store';
-const FTP_PASSWORD = 'Longthanhphat@2410';
+// SMTP Server configuration
+const SMTP_SERVER = 'sng104.arandomserver.com';
+const SMTP_PORT = 587; // Standard SMTP port
+const SMTP_USERNAME = 'admin@longthanhphat.store';
+const SMTP_PASSWORD = 'Longthanhphat@2410';
 const ADMIN_EMAIL = 'admin@longthanhphat.store'; // Admin email for notifications
 
 // Email service configuration
-const USE_REAL_EMAIL_SERVICE = true; // Enable real email sending via FTP server
-const USE_FTP_EMAIL = true; // Use FTP server for email sending
+const USE_REAL_EMAIL_SERVICE = true; // Enable SMTP server for email sending
+const USE_SMTP_EMAIL = true; // Use SMTP server for email sending
 
 // Alternative email service using a simple HTTP endpoint
 const sendEmailViaAlternative = async (emailData: EmailData): Promise<boolean> => {
@@ -17,7 +18,7 @@ const sendEmailViaAlternative = async (emailData: EmailData): Promise<boolean> =
       to: emailData.to_email,
       subject: 'Thông báo từ Long Thanh Phat Shop',
       body: emailData.message,
-      from: FTP_USERNAME,
+      from: SMTP_USERNAME,
       timestamp: new Date().toISOString()
     };
 
@@ -26,28 +27,30 @@ const sendEmailViaAlternative = async (emailData: EmailData): Promise<boolean> =
     // Try to send via a CORS-friendly email service
     // Using a public email API that supports CORS
     try {
-      // Option 1: Use a CORS proxy
-      const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-      const targetUrl = `${FTP_SERVER}send-email`;
-      
+      // Option 1: Use EmailJS service (free and CORS-friendly)
       const emailPayload = {
-        to: emailData.to_email,
+        to_email: emailData.to_email,
         to_name: emailData.to_name,
-        from: emailData.from_email,
+        from_email: emailData.from_email,
         from_name: emailData.from_name,
         subject: 'Thông báo từ Long Thanh Phat Shop',
         message: emailData.message,
         order_details: emailData.order_details || ''
       };
 
-      const response = await fetch(`${proxyUrl}${targetUrl}`, {
+      // Use a backend service to send email (recommended approach)
+      const response = await fetch('/api/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${btoa(`${FTP_USERNAME}:${FTP_PASSWORD}`)}`,
-          'X-Requested-With': 'XMLHttpRequest'
         },
-        body: JSON.stringify(emailPayload)
+        body: JSON.stringify({
+          ...emailPayload,
+          smtp_server: SMTP_SERVER,
+          smtp_port: SMTP_PORT,
+          smtp_username: SMTP_USERNAME,
+          smtp_password: SMTP_PASSWORD
+        })
       });
 
       if (response.ok) {
@@ -88,6 +91,7 @@ export interface EmailData {
   from_name: string;
   from_email: string;
   message: string;
+  subject?: string;
   order_details?: string;
 }
 
@@ -134,29 +138,33 @@ export const initializeEmailConnection = async (): Promise<boolean> => {
       return true;
     }
 
-    if (USE_FTP_EMAIL) {
-      // Test FTP server connection
-      console.log('Testing FTP server connection...');
+    if (USE_SMTP_EMAIL) {
+      // Test SMTP server connection
+      console.log('Testing SMTP server connection...');
       
       try {
-        const response = await fetch(FTP_SERVER, {
-          method: 'GET',
-          mode: 'cors',
+        const response = await fetch('/api/test-smtp', {
+          method: 'POST',
           headers: {
-            'Authorization': `Basic ${btoa(`${FTP_USERNAME}:${FTP_PASSWORD}`)}`,
             'Content-Type': 'application/json'
-          }
+          },
+          body: JSON.stringify({
+            smtp_server: SMTP_SERVER,
+            smtp_port: SMTP_PORT,
+            smtp_username: SMTP_USERNAME,
+            smtp_password: SMTP_PASSWORD
+          })
         });
         
         if (response.ok) {
-          console.log('FTP server connection successful');
+          console.log('SMTP server connection successful');
           return true;
         } else {
-          console.warn('FTP server connection failed, using fallback method');
+          console.warn('SMTP server connection failed, using fallback method');
           return true; // Return true to allow fallback functionality
         }
       } catch (connectionError) {
-        console.warn('FTP server connection failed, using fallback method:', connectionError);
+        console.warn('SMTP server connection failed, using fallback method:', connectionError);
         return true; // Return true to allow fallback functionality
       }
     }
@@ -184,38 +192,42 @@ export const sendEmail = async (emailData: EmailData): Promise<boolean> => {
       return true;
     }
 
-    // Try to send email via FTP server
-    if (USE_FTP_EMAIL) {
+    // Try to send email via SMTP server
+    if (USE_SMTP_EMAIL) {
       try {
         const emailPayload = {
           to: emailData.to_email,
           to_name: emailData.to_name,
           from: emailData.from_email,
           from_name: emailData.from_name,
-          subject: 'Thông báo từ Long Thanh Phat Shop',
+          subject: emailData.subject || 'Thông báo từ Long Thanh Phat Shop',
           message: emailData.message,
           order_details: emailData.order_details || ''
         };
 
-        const response = await fetch(`${FTP_SERVER}send-email`, {
+        const response = await fetch('/api/send-email', {
           method: 'POST',
-          mode: 'cors',
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Basic ${btoa(`${FTP_USERNAME}:${FTP_PASSWORD}`)}`
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify(emailPayload)
+          body: JSON.stringify({
+            ...emailPayload,
+            smtp_server: SMTP_SERVER,
+            smtp_port: SMTP_PORT,
+            smtp_username: SMTP_USERNAME,
+            smtp_password: SMTP_PASSWORD
+          })
         });
 
         if (response.ok) {
-          console.log('Email sent successfully via FTP server');
+          console.log('Email sent successfully via SMTP server');
           return true;
         } else {
-          console.error('Failed to send email via FTP server:', response.statusText);
-          throw new Error('FTP server returned error');
+          console.error('Failed to send email via SMTP server:', response.statusText);
+          throw new Error('SMTP server returned error');
         }
-      } catch (ftpError) {
-        console.warn('FTP server failed, trying alternative method:', ftpError);
+      } catch (smtpError) {
+        console.warn('SMTP server failed, trying alternative method:', smtpError);
         return await sendEmailViaAlternative(emailData);
       }
     }
@@ -241,8 +253,8 @@ export const sendOrderConfirmation = async (orderData: OrderEmailData): Promise<
   try {
     const orderId = `ORD-${Date.now()}`;
     const formattedPrice = orderData.packagePrice.toLocaleString('vi-VN', {
-      style: 'currency',
-      currency: 'VND'
+        style: 'currency',
+        currency: 'VND'
     });
     
     const fullAddress = `${orderData.customerAddress}, ${orderData.customerWard}, ${orderData.customerDistrict}, ${orderData.customerProvince}`;
@@ -282,7 +294,7 @@ Long Thanh Phat Shop`;
       return true;
     }
 
-    if (USE_FTP_EMAIL) {
+    if (USE_SMTP_EMAIL) {
       try {
         const emailPayload = {
           to: orderData.customerEmail,
@@ -294,25 +306,29 @@ Long Thanh Phat Shop`;
           order_details: `Đơn hàng: ${orderData.packageName} - ${formattedPrice}`
         };
 
-        const response = await fetch(`${FTP_SERVER}send-email`, {
+        const response = await fetch('/api/send-email', {
           method: 'POST',
-          mode: 'cors',
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Basic ${btoa(`${FTP_USERNAME}:${FTP_PASSWORD}`)}`
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify(emailPayload)
+          body: JSON.stringify({
+            ...emailPayload,
+            smtp_server: SMTP_SERVER,
+            smtp_port: SMTP_PORT,
+            smtp_username: SMTP_USERNAME,
+            smtp_password: SMTP_PASSWORD
+          })
         });
 
         if (response.ok) {
-          console.log('Order confirmation email sent via FTP server');
+          console.log('Order confirmation email sent via SMTP server');
           return true;
         } else {
-          console.error('Failed to send order confirmation via FTP server:', response.statusText);
-          throw new Error('FTP server returned error');
+          console.error('Failed to send order confirmation via SMTP server:', response.statusText);
+          throw new Error('SMTP server returned error');
         }
-      } catch (ftpError) {
-        console.warn('FTP server failed for order confirmation:', ftpError);
+      } catch (smtpError) {
+        console.warn('SMTP server failed for order confirmation:', smtpError);
         // Fallback to storage
       }
     }
@@ -356,8 +372,8 @@ export const sendAdminNotification = async (orderData: OrderEmailData): Promise<
   try {
     const orderId = `ORD-${Date.now()}`;
     const formattedPrice = orderData.packagePrice.toLocaleString('vi-VN', {
-      style: 'currency',
-      currency: 'VND'
+        style: 'currency',
+        currency: 'VND'
     });
     
     const fullAddress = `${orderData.customerAddress}, ${orderData.customerWard}, ${orderData.customerDistrict}, ${orderData.customerProvince}`;
@@ -396,7 +412,7 @@ Hệ thống Long Thanh Phat Shop`;
       return true;
     }
 
-    if (USE_FTP_EMAIL) {
+    if (USE_SMTP_EMAIL) {
       try {
         const emailPayload = {
           to: ADMIN_EMAIL,
@@ -408,25 +424,29 @@ Hệ thống Long Thanh Phat Shop`;
           order_details: `Đơn hàng mới: ${orderData.packageName} - ${formattedPrice} từ ${orderData.customerName}`
         };
 
-        const response = await fetch(`${FTP_SERVER}send-email`, {
+        const response = await fetch('/api/send-email', {
           method: 'POST',
-          mode: 'cors',
           headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Basic ${btoa(`${FTP_USERNAME}:${FTP_PASSWORD}`)}`
+            'Content-Type': 'application/json'
           },
-          body: JSON.stringify(emailPayload)
+          body: JSON.stringify({
+            ...emailPayload,
+            smtp_server: SMTP_SERVER,
+            smtp_port: SMTP_PORT,
+            smtp_username: SMTP_USERNAME,
+            smtp_password: SMTP_PASSWORD
+          })
         });
 
         if (response.ok) {
-          console.log('Admin notification sent via FTP server');
+          console.log('Admin notification sent via SMTP server');
           return true;
         } else {
-          console.error('Failed to send admin notification via FTP server:', response.statusText);
-          throw new Error('FTP server returned error');
+          console.error('Failed to send admin notification via SMTP server:', response.statusText);
+          throw new Error('SMTP server returned error');
         }
-      } catch (ftpError) {
-        console.warn('FTP server failed for admin notification:', ftpError);
+      } catch (smtpError) {
+        console.warn('SMTP server failed for admin notification:', smtpError);
         // Fallback to storage
       }
     }
