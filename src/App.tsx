@@ -24,7 +24,7 @@ import {
 const App: React.FC = () => {
   const [activeTab, setActiveTab] = useState("overview");
   const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState("CB1");
+  const [selectedPackage, setSelectedPackage] = useState("1");
   const { scrollToSection } = useScrollToSection();
 
   // Navigation tabs
@@ -233,59 +233,68 @@ const App: React.FC = () => {
   // Product packages data
   const packages: ProductPackage[] = [
     {
-      id: "CB1",
-      name: "CB1: 1 GỘI + 1 HẤP (620K)",
-      price: 620000,
+      id: "1",
+      name: "1 lọ Minoxidil Lẻ 299k (Chưa Tính Phí Ship)",
+      price: 299000,
       isHot: false,
       isSuperDeal: false,
       isFreeship: false,
-      description: "Gói cơ bản với 1 chai dầu gội và 1 chai dầu xả",
+      description: "1 lọ Minoxidil Lẻ 299k (Chưa Tính Phí Ship)",
     },
     {
-      id: "CB2",
-      name: "CB2: 1 GỘI + 1 HẤP + 1 XỊT PHỤC HỒI (695K - FREESHIP) HOT",
-      price: 695000,
+      id: "2",
+      name: "2 Lọ Minoxidil 5% 570k (Miễn Phí Ship)",
+      price: 570000,
       isHot: true,
       isSuperDeal: false,
-      isFreeship: false,
-      description: "Gói combo với dầu gội, dầu xả và xịt phục hồi",
+      isFreeship: true,
+      description: "2 Lọ Minoxidil 5% 570k (Miễn Phí Ship)",
     },
     {
-      id: "CB3",
-      name: "CB3: 2 GỘI + 1 HẤP TẶNG 1 XỊT PHỤC HỒI (895K - FREESHIP) HOT",
-      price: 895000,
+      id: "CB01",
+      name: "CB01: COMBO MỌC RÂU -LÔNG MÀY CƠ BẢN .GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT ( 398k - Miễn Phí Ship)",
+      price: 398000,
       isHot: true,
       isSuperDeal: false,
-      isFreeship: false,
+      isFreeship: true,
       description:
-        "Gói tiết kiệm với 2 chai dầu gội, 1 chai dầu xả và tặng xịt phục hồi",
+        "CB01: COMBO MỌC RÂU -LÔNG MÀY CƠ BẢN .GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT ( 398k - Miễn Phí Ship)",
     },
     {
-      id: "CB4",
-      name: "CB4: 2 GỘI + 2 HẤP TẶNG 1 XỊT 275k (1240K - FREESHIP)",
-      price: 1240000,
+      id: "CB02",
+      name: "CB02 : COMBO MỌC TÓC CƠ BẢN.GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM (429K - Miễn Phí Ship)",
+      price: 429000,
       isHot: true,
       isSuperDeal: true,
       isFreeship: true,
-      description: "Gói siêu tiết kiệm với đầy đủ sản phẩm",
+      description: "CB02 : COMBO MỌC TÓC CƠ BẢN.GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM (429K - Miễn Phí Ship)",
     },
     {
-      id: "CB5",
-      name: "KHÁCH QUEN MUA 5 CẶP TẶNG 1 CẶP + 3 XỊT PHỤC HỒI (3120K + FREE SHIP)",
-      price: 3120000,
+      id: "CB03",
+      name: "CB03: COMBO MỌC RÂU -LÔNG MÀY NÂNG CAO .GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM ( 529K - Miễn Phí Ship)",
+      price: 529000,
       isHot: false,
       isSuperDeal: false,
       isFreeship: true,
-      description: "Gói siêu tiết kiệm với đầy đủ sản phẩm",
+      description: "CB03: COMBO MỌC RÂU -LÔNG MÀY NÂNG CAO .GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM ( 529K - Miễn Phí Ship)",
     },
     {
-      id: "CB6",
-      name: "XỊT SỐ 3 - TẶNG KIT DẦU GỘI (275K)",
-      price: 275000,
+      id: "CB04",
+      name: "CB04: COMBO MỌC TÓC TRUNG BÌNH. GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC 300ML ( 569K -Miễn Phí Ship)",
+      price: 569000,
       isHot: false,
       isSuperDeal: false,
-      isFreeship: false,
-      description: "Gói siêu tiết kiệm với đầy đủ sản phẩm",
+      isFreeship: true,
+      description: "CB04: COMBO MỌC TÓC TRUNG BÌNH. GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC 300ML ( 569K -Miễn Phí Ship)",
+    },
+    {
+      id: "CB05",
+      name: "CB05 : COMBO MỌC TÓC NÂNG CAO. GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC ( 639K - Miễn Phí Ship)",
+      price: 639000,
+      isHot: true,
+      isSuperDeal: true,
+      isFreeship: true,
+      description: "CB05 : COMBO MỌC TÓC NÂNG CAO. GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC ( 639K - Miễn Phí Ship)",
     },
   ];
 

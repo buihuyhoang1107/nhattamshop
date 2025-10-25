@@ -4,12 +4,7 @@ import {
   getProvinces,
   getWardsByDistrict,
 } from "../../data/vietnamAddresses";
-import {
-  initializeEmailConnection,
-  OrderEmailData,
-  sendAdminNotification,
-  sendOrderConfirmation
-} from "../../services/emailService";
+// Direct PHP email sending
 import { CustomerInfo, ProductPackage } from "../../types";
 import "./OrderForm.css";
 
@@ -153,9 +148,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Initialize Email Server connection
-    await initializeEmailConnection();
-    
     // Get selected package details
     const selectedPkg = packages.find(pkg => pkg.id === selectedPackage);
     if (!selectedPkg) {
@@ -163,39 +155,92 @@ const OrderForm: React.FC<OrderFormProps> = ({
       return;
     }
     
-    // Prepare email data - Convert codes to names (fix type mismatch)
+    // Prepare email data - Convert codes to names
     const provinceName = provinces.find(p => p.code.toString() === customerInfo.province)?.name || customerInfo.province;
     const districtName = availableDistricts.find(d => d.code.toString() === customerInfo.district)?.name || customerInfo.district;
     const wardName = availableWards.find(w => w.code.toString() === customerInfo.ward)?.name || customerInfo.ward;
     
+    const orderId = `ORD-${Date.now()}`;
+    const formattedPrice = selectedPkg.price.toLocaleString('vi-VN', {
+      style: 'currency',
+      currency: 'VND'
+    });
     
-    const orderEmailData: OrderEmailData = {
-      customerName: customerInfo.fullName,
-      customerPhone: customerInfo.phone,
-      customerAddress: customerInfo.address,
-      customerProvince: provinceName,
-      customerDistrict: districtName,
-      customerWard: wardName,
-      customerEmail: customerInfo.email,
-      selectedPackage: selectedPackage,
-      packageName: selectedPkg.name,
-      packagePrice: selectedPkg.price,
-      orderDate: new Date().toLocaleString('vi-VN')
-    };
+    const fullAddress = `${customerInfo.address}, ${wardName}, ${districtName}, ${provinceName}`;
     
     try {
       // Send confirmation email to customer
-      const customerEmailSent = await sendOrderConfirmation(orderEmailData);
+      const customerEmailContent = `
+        <h2>Xác nhận đơn hàng</h2>
+        <p>Xin chào ${customerInfo.fullName},</p>
+        <p>Cảm ơn bạn đã đặt hàng tại Long Thanh Phat Shop!</p>
+        
+        <h3>Thông tin đơn hàng:</h3>
+        <ul>
+          <li><strong>Mã đơn hàng:</strong> ${orderId}</li>
+          <li><strong>Gói sản phẩm:</strong> ${selectedPkg.name}</li>
+          <li><strong>Giá:</strong> ${formattedPrice}</li>
+          <li><strong>Ngày đặt:</strong> ${new Date().toLocaleString('vi-VN')}</li>
+        </ul>
+        
+        <h3>Thông tin giao hàng:</h3>
+        <ul>
+          <li><strong>Tên:</strong> ${customerInfo.fullName}</li>
+          <li><strong>Số điện thoại:</strong> ${customerInfo.phone}</li>
+          <li><strong>Email:</strong> ${customerInfo.email}</li>
+          <li><strong>Địa chỉ:</strong> ${fullAddress}</li>
+        </ul>
+        
+        <p>Chúng tôi sẽ liên hệ với bạn trong thời gian sớm nhất để xác nhận đơn hàng.</p>
+        <p>Trân trọng,<br>Long Thanh Phat Shop</p>
+      `;
+      
+      const customerEmailSent = await sendEmailViaPHP({
+        to: customerInfo.email,
+        toName: customerInfo.fullName,
+        from: 'admin@longthanhphat.store',
+        fromName: 'Long Thanh Phat Shop',
+        subject: `Xác nhận đơn hàng ${orderId}`,
+        message: customerEmailContent,
+        isHtml: true
+      });
       
       // Send notification to admin
-      const adminEmailSent = await sendAdminNotification(orderEmailData);
+      const adminEmailContent = `
+        <h2>Thông báo đơn hàng mới</h2>
+        <h3>Thông tin khách hàng:</h3>
+        <ul>
+          <li><strong>Tên:</strong> ${customerInfo.fullName}</li>
+          <li><strong>Số điện thoại:</strong> ${customerInfo.phone}</li>
+          <li><strong>Email:</strong> ${customerInfo.email}</li>
+          <li><strong>Địa chỉ:</strong> ${fullAddress}</li>
+        </ul>
+        
+        <h3>Thông tin đơn hàng:</h3>
+        <ul>
+          <li><strong>Mã đơn hàng:</strong> ${orderId}</li>
+          <li><strong>Gói sản phẩm:</strong> ${selectedPkg.name}</li>
+          <li><strong>Giá:</strong> ${formattedPrice}</li>
+          <li><strong>Ngày đặt:</strong> ${new Date().toLocaleString('vi-VN')}</li>
+        </ul>
+        
+        <p>Vui lòng liên hệ với khách hàng để xác nhận đơn hàng.</p>
+        <p>Hệ thống Long Thanh Phat Shop</p>
+      `;
+      
+      const adminEmailSent = await sendEmailViaPHP({
+        to: 'admin@longthanhphat.store',
+        toName: 'Admin',
+        from: customerInfo.email,
+        fromName: customerInfo.fullName,
+        subject: `Đơn hàng mới ${orderId} từ ${customerInfo.fullName}`,
+        message: adminEmailContent,
+        isHtml: true
+      });
       
       if (customerEmailSent && adminEmailSent) {
-        alert('Đặt hàng thành công! Email xác nhận đã được gửi.');
       } else if (customerEmailSent) {
-        alert('Đặt hàng thành công! Email xác nhận đã được gửi cho khách hàng.');
       } else {
-        alert('Đặt hàng thành công! Tuy nhiên có lỗi khi gửi email xác nhận.');
       }
       
       // Call original onSubmit
@@ -203,8 +248,39 @@ const OrderForm: React.FC<OrderFormProps> = ({
       
     } catch (error) {
       console.error('Error sending emails:', error);
-      alert('Đặt hàng thành công! Tuy nhiên có lỗi khi gửi email xác nhận.');
+      alert('⚠️ Đặt hàng thành công! Có lỗi khi gửi email tự động.');
       onSubmit(customerInfo, selectedPackage);
+    }
+  };
+
+  // Function to send email via PHP script
+  const sendEmailViaPHP = async (emailData: {
+    to: string;
+    toName: string;
+    from: string;
+    fromName: string;
+    subject: string;
+    message: string;
+    isHtml: boolean;
+  }) => {
+    try {
+      const response = await fetch('https://longthanhphat.store/send-email.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(emailData)
+      });
+      
+      if (response.ok) {
+        const result = await response.json();
+        return result.success;
+      } else {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+      }
+    } catch (error) {
+      console.error('PHP email send failed:', error);
+      return false;
     }
   };
 
