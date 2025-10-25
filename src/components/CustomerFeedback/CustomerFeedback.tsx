@@ -41,7 +41,7 @@ const CustomerFeedback: React.FC = () => {
           {Array.from({ length: 27 }, (_, index) => (
             <div key={index} className="feedback-slide">
               <img
-                src={`/img/phanhoi/phanhoi (${index + 1}).jpg`}
+                src={`/img/phanhoi/phanhoi${index + 1}.jpg`}
                 alt={`Phản hồi khách hàng ${index + 1}`}
                 loading="lazy"
               />
