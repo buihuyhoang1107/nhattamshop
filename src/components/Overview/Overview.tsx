@@ -38,7 +38,7 @@ const Overview: React.FC<OverviewProps> = ({
         <div className="cta-section">
           <div className="arrows">↓↓↓</div>
           <div className="cta-banner">
-            <h3>Hãy sử dụng ngay Dầu gội Long Thành Phát</h3>
+            <h3>Hãy sử dụng ngay minoxidil 5% và các sản phẩm kèm theo như Lăn Kim - Bột Trộn LCLT - Dầu Gội DHT - BLOCKER ORGANIC</h3>
           </div>
         </div>
       </div>
@@ -47,16 +47,16 @@ const Overview: React.FC<OverviewProps> = ({
       <div className="product-showcase">
         <div className="showcase-grid">
           <div className="showcase-item">
-            <img src="/img/imgi_50_gif.gif" alt="Hair result 1" />
+            <img src="/img/4anh1.jpg" alt="Hair result 1" />
           </div>
           <div className="showcase-item">
-            <img src="/img/imgi_51_gif.gif" alt="Hair result 2" />
+            <img src="/img/4anh2.jpg" alt="Hair result 2" />
           </div>
           <div className="showcase-item">
-            <img src="/img/imgi_58_gif.gif" alt="Hair result 2" />
+            <img src="/img/4anh3.jpg" alt="Hair result 2" />
           </div>
           <div className="showcase-item">
-            <img src="/img/imgi_53_gif.gif" alt="Hair result 2" />
+            <img src="/img/4anh4.jpg" alt="Hair result 2" />
           </div>
         </div>
         {/* <div className="showcase-logo">
@@ -67,8 +67,8 @@ const Overview: React.FC<OverviewProps> = ({
       {/* Benefits Section */}
       <div className="benefits-section">
         <div className="benefits-title">
-          <span className="red-text">LÝ DO KHIẾN BỘ COMBO</span>
-          <span className="black-text">NHÀ LONG THÀNH PHÁT ĐƯỢC TIN DÙNG</span>
+          <span className="red-text">LÝ DO KHIẾN BỘ COMBO MINOXIDIL 5% ĐƯỢC TIN DÙNG</span>
+          {/* <span className="black-text">NHÀ LONG THÀNH PHÁT ĐƯỢC TIN DÙNG</span> */}
         </div>
 
         {productBenefits.map((benefit) => (

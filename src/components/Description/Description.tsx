@@ -1,13 +1,3 @@
-import {
-  faHandPointRight,
-  faHeart,
-  faFire,
-  faCheckCircle,
-  faEye,
-  faUser,
-  faClock,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import { Certification } from "../../types";
 import "./Description.css";
@@ -48,7 +38,7 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
   return (
     <div id="description" className="description">
       {/* Certifications Section */}
-      <div className="certifications-section">
+      {/* <div className="certifications-section">
         <h2 className="certifications-title">
           GIẤY TỜ CÔNG BỐ KIỂM NGHIỆM ĐẦY ĐỦ
         </h2>
@@ -83,7 +73,6 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
             </button>
           </div>
 
-          {/* Thumbnail navigation */}
           <div className="cert-slide-thumbnails">
             {certImages.map((image, index) => (
               <div
@@ -98,22 +87,36 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
       {/* Product Benefits */}
       <div className="benefits-section">
         <h2 className="product-intro-title">Giới thiệu về sản phẩm này</h2>
-        <h3 className="product-details-title">Chi tiết</h3>
+        {/* <h3 className="product-details-title">Chi tiết</h3> */}
 
         <div className="product-description">
-          <p>
-            Long Thành Phát là bộ sản phẩm phục hồi – mọc tóc chuyên sâu, ứng dụng công thức
-            độc quyền từ salon cao cấp, dành cho người rụng tóc, tóc thưa, tóc
-            yếu lâu năm.
-          </p>
-
-          <p>Kết hợp 3 hoạt chất "vàng" được chuyên gia tóc tin dùng:</p>
-
           <ul className="ingredients-list">
+            <li className="ingredient-item">
+              SẢN PHẨM HỖ TRỢ GIÚP PHÁT TRIỂN MỌC RÂU-TÓC-LÔNG MÀY VÀ LÔNG CƠ
+              THỂ.
+            </li>
+            <li className="ingredient-item">
+              SẢN PHẨM DẠNG LỎNG .DUNG TÍCH 60ml . DÙNG ĐƯỢC TỪ 1 ĐẾN 3 THÁNG
+              TUỲ THEO DIỆN TÍCH BÔI VÀ CÁCH SỬ DỤNG.
+            </li>
+            <li className="ingredient-item">
+              SẢN PHẨM CÓ THỂ GÂY KÍCH ỨNG VỚI NHỮNG NGƯỜI DA NHẠY CẢM. CÁC HIỆN
+              TƯỢNG KÍCH ỨNG NHƯ NỔI MẨN ĐỎ.BONG VẢY GÀU.NGỨA NGÁY CHÂM CHÍCH
+              KHÓ CHỊU.CÁC HIỆN TƯỢNG SẼ CÓ XU HƯỚNG GIẢM DẦN THEO THỜI GIAN.
+            </li>
+            <li className="ingredient-item ">
+              CẦN KIÊN TRÌ SỬ DỤNG TRONG MỘT KHOẢNG THỜI GIAN NHẤT ĐỊNH. KẾT QUẢ
+              SẼ KHÁC NHAU PHỤ THUỘC THEO CƠ ĐỊA .VÀ ĐỘ TUỔI.
+            </li>
+            <li className="ingredient-item highlight">
+              LUÔN CỐ GẮNG HỖ TRỢ GIẢI ĐÁP THẮC MẮC KHI KHÁCH HÀNG CẦN.
+            </li>
+          </ul>
+          {/* <ul className="ingredients-list">
             <li className="ingredient-item">
               <strong>Biotin:</strong> Kích thích nang tóc phát triển, giúp mọc
               tóc mới tại những vùng tóc mỏng - thưa.
@@ -126,21 +129,21 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
               <strong>Keratin:</strong> Phục hồi thân tóc hư tổn, làm tóc suôn
               mượt, mềm mại và dễ chải.
             </li>
-          </ul>
+          </ul> */}
 
-          <div className="target-audience">
+          {/* <div className="target-audience">
             <FontAwesomeIcon className="benefit-icon" icon={faHandPointRight} />
             <p>
               Dành cho ai đã từng dùng nhiều loại dầu gội nhưng không cải thiện
               – đây là giải pháp giúp bạn lấy lại mái tóc chắc khỏe, dày đẹp và
               tự tin như trước.
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
 
       {/* Emotional Story Section */}
-      <div className="story-section">
+      {/* <div className="story-section">
         <h2 className="story-title">KHI MÁI TÓC KHÔNG CÒN CHỈ LÀ MÁI TÓC</h2>
 
         <div className="story-content">
@@ -152,25 +155,25 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
               xấu, mà vì họ đang dần đánh mất chính mình… chỉ vì mái tóc.
             </p>
           </div>
-          
+
           <div className="story-paragraph">
             <FontAwesomeIcon className="story-icon user-icon" icon={faUser} />
             <p>
-              Người đàn ông sống với nghề tóc hơn 10 năm. Trong
-              ngần ấy năm, tôi chạm vào hàng ngàn mái đầu… nhưng có những lần chạm
-              khiến tôi ám ảnh mãi.
+              Người đàn ông sống với nghề tóc hơn 10 năm. Trong ngần ấy năm, tôi
+              chạm vào hàng ngàn mái đầu… nhưng có những lần chạm khiến tôi ám
+              ảnh mãi.
             </p>
           </div>
-          
+
           <div className="story-paragraph highlight">
             <FontAwesomeIcon className="story-icon eye-icon" icon={faEye} />
             <p>
-              Một chị ngoài 30 tuổi – từng rất tự tin, thành đạt – hôm đó bước vào
-              salon với chiếc mũ đội sâu kín đầu, ngồi cúi mặt. Khi tháo mũ ra,
-              tóc chị rụng thành từng mảng, lộ rõ cả da đầu.
+              Một chị ngoài 30 tuổi – từng rất tự tin, thành đạt – hôm đó bước
+              vào salon với chiếc mũ đội sâu kín đầu, ngồi cúi mặt. Khi tháo mũ
+              ra, tóc chị rụng thành từng mảng, lộ rõ cả da đầu.
             </p>
           </div>
-          
+
           <div className="story-paragraph highlight">
             <FontAwesomeIcon className="story-icon heart-icon" icon={faHeart} />
             <p>
@@ -178,27 +181,30 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
               "Anh ơi, tóc em còn cứu được không ạ?"
             </p>
           </div>
-          
+
           <div className="story-paragraph">
             <FontAwesomeIcon className="story-icon clock-icon" icon={faClock} />
             <p>
               Tôi từng là người có tay nghề, có kỹ thuật. Nhưng lúc đó, tôi im
-              lặng. Vì tôi biết: mọi thứ tôi từng học – không đủ. Không đủ để cứu
-              một mái tóc đã hư tổn quá nặng. Không đủ để giúp tóc mọc lại nơi
-              những nang đã yếu, đã tắt. Không đủ… để ngăn người ta mất đi sự tự
-              tin.
+              lặng. Vì tôi biết: mọi thứ tôi từng học – không đủ. Không đủ để
+              cứu một mái tóc đã hư tổn quá nặng. Không đủ để giúp tóc mọc lại
+              nơi những nang đã yếu, đã tắt. Không đủ… để ngăn người ta mất đi
+              sự tự tin.
             </p>
           </div>
-          
+
           <div className="story-paragraph insight">
-            <FontAwesomeIcon className="story-icon hand-icon" icon={faHandPointRight} />
+            <FontAwesomeIcon
+              className="story-icon hand-icon"
+              icon={faHandPointRight}
+            />
             <p>
               Tôi biết rõ: Tóc rụng không giết người. Nhưng nó giết đi sự nữ
               tính. Tóc mỏng không làm bạn xấu xí. Nhưng nó khiến bạn nhìn mình
               trong gương và không còn muốn soi nữa.
             </p>
           </div>
-          
+
           <div className="story-paragraph">
             <FontAwesomeIcon className="story-icon heart-icon" icon={faHeart} />
             <p>
@@ -206,7 +212,7 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
               Từng sợi, như thời gian trôi qua trước mặt tôi.
             </p>
           </div>
-          
+
           <div className="story-paragraph">
             <FontAwesomeIcon className="story-icon clock-icon" icon={faClock} />
             <p>
@@ -214,39 +220,47 @@ const Description: React.FC<DescriptionProps> = ({ certifications }) => {
               mái tóc – thì tôi chỉ đang làm nghề… nửa vời.
             </p>
           </div>
-          
+
           <div className="story-paragraph breakthrough">
             <FontAwesomeIcon className="story-icon fire-icon" icon={faFire} />
             <p>
-              Và rồi Long Thành Phát ra đời – không phải để nổi tiếng, không phải để chạy
-              quảng cáo. Long Thành Phát ra đời để phục hồi những mái tóc đang gãy nát, đang
-              giòn như rơm vì hóa chất, stress, sau sinh… Long Thành Phát ra đời để giúp tóc
-              con mọc lại tại vùng thưa, vùng hói – nơi bạn từng nghĩ là hết hy
-              vọng. Long Thành Phát ra đời… để bạn nhìn lại mái tóc của mình và nghĩ: "May mà
-              mình chưa bỏ cuộc."
+              Và rồi Long Thành Phát ra đời – không phải để nổi tiếng, không
+              phải để chạy quảng cáo. Long Thành Phát ra đời để phục hồi những
+              mái tóc đang gãy nát, đang giòn như rơm vì hóa chất, stress, sau
+              sinh… Long Thành Phát ra đời để giúp tóc con mọc lại tại vùng
+              thưa, vùng hói – nơi bạn từng nghĩ là hết hy vọng. Long Thành Phát
+              ra đời… để bạn nhìn lại mái tóc của mình và nghĩ: "May mà mình
+              chưa bỏ cuộc."
             </p>
           </div>
-          
+
           <div className="story-paragraph success">
-            <FontAwesomeIcon className="story-icon check-icon" icon={faCheckCircle} />
+            <FontAwesomeIcon
+              className="story-icon check-icon"
+              icon={faCheckCircle}
+            />
             <p>
-              Hơn 1.000.000 khách hàng đã tin dùng Long Thành Phát – không phải vì lời
-              quảng cáo. Mà vì họ cảm nhận được sự thật lòng trong từng giọt dầu
-              gội:
+              Hơn 1.000.000 khách hàng đã tin dùng Long Thành Phát – không phải
+              vì lời quảng cáo. Mà vì họ cảm nhận được sự thật lòng trong từng
+              giọt dầu gội:
             </p>
           </div>
-          
+
           <div className="story-paragraph results">
-            <FontAwesomeIcon className="story-icon check-icon" icon={faCheckCircle} />
+            <FontAwesomeIcon
+              className="story-icon check-icon"
+              icon={faCheckCircle}
+            />
             <p>
-              Tóc mềm hơn ngay lần đầu gội. Tóc con bắt đầu mọc lên sau vài tuần.
-              Tóc yếu, khô xơ – phục hồi dần từng ngày. Long Thành Phát không làm phép. Long Thành Phát
-              không hứa sau 1 đêm. Nhưng Long Thành Phát được tạo ra bằng nỗi đau thật, trái
-              tim thật và sự thấu hiểu từ bên trong nghề.
+              Tóc mềm hơn ngay lần đầu gội. Tóc con bắt đầu mọc lên sau vài
+              tuần. Tóc yếu, khô xơ – phục hồi dần từng ngày. Long Thành Phát
+              không làm phép. Long Thành Phát không hứa sau 1 đêm. Nhưng Long
+              Thành Phát được tạo ra bằng nỗi đau thật, trái tim thật và sự thấu
+              hiểu từ bên trong nghề.
             </p>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -81,21 +81,20 @@ const App: React.FC = () => {
       id: "1",
       title: "Rụng tóc",
       description:
-        "Rụng tóc từng nắm mỗi lần gội – chạm nhẹ cũng rụng, chải nhẹ cũng đau lòng.",
+        "Tóc thưa, rụng từng mảng – hói dần vùng trán, đỉnh đầu khiến mất tự tin.",
       image: "/img/problems-grid1.png",
     },
     {
       id: "2",
       title: "Tóc mỏng",
-      description:
-        "Tóc mỏng lộ da đầu – mất tự tin, ngại giao tiếp, ngại cả nhìn chính mình trong gương.",
+      description: "Lông mày thưa, nhạt màu – khuôn mặt thiếu thần thái.",
       image: "/img/problems-grid2.png",
     },
     {
       id: "3",
       title: "Thử nhiều sản phẩm",
       description:
-        "Đã thử đủ loại dầu gội – nhưng tóc vẫn khô, rụng, chẳng thấy gì khá hơn.",
+        "Dù thử nhiều sản phẩm mọc tóc, mọc râu, mọc lông mày – nhưng vẫn không thấy hiệu quả rõ rệt.",
       image: "/img/problems-grid3.png",
     },
     {
@@ -130,12 +129,8 @@ const App: React.FC = () => {
       rating: 5,
       itemDetail: "1 cặp",
       comment:
-        "Gội 2 tuần thì thấy tóc bắt đầu mọc lên nhiều, Mùi hoa thơm lâu, quạn trọng k bị gàu và k bết mãi đỉnh",
-      images: [
-        "/img/imgi_74_jpeg.jpg",
-        "/img/imgi_75_jpeg.jpg",
-        "/img/imgi_76_jpeg.jpg",
-      ],
+        "Lần đầu tiên thấy sản phẩm mọc tóc mà hiệu quả rõ rệt như vậy. Dùng đúng hướng dẫn là tóc mọc chắc khỏe, không bị rụng lại",
+      images: ["/img/imgi_74_jpeg.jpg", "/img/imgi_75_jpeg.jpg"],
       date: "2024-01-15",
     },
     {
@@ -145,12 +140,8 @@ const App: React.FC = () => {
       rating: 5,
       itemDetail: "2 cặp",
       comment:
-        "Đúng như anh giới thiệu, quá nhiều tính năng, phục hồi, kích mọc, lại còn trị gàu, quá đỉnh nhaaaaa <3",
-      images: [
-        "/img/imgi_77_jpeg.jpg",
-        "/img/imgi_78_jpeg.jpg",
-        "/img/imgi_79_jpeg.jpg",
-      ],
+        "Sản phẩm chính hãng, đóng gói cẩn thận. Mình dùng được 2 lọ rồi, tóc dày hơn trước nhiều. Quá đáng tiền!",
+      images: ["/img/imgi_77_jpeg.jpg", "/img/imgi_78_jpeg.jpg"],
       date: "2024-01-14",
     },
     {
@@ -159,59 +150,56 @@ const App: React.FC = () => {
       userAvatar: "/img/khach2.jpg",
       rating: 5,
       itemDetail: "1 cặp",
-      comment: "Sản phẩm rất tốt, tóc mọc nhiều hơn sau 1 tháng sử dụng",
-      images: [
-        "/img/imgi_82_jpeg.jpg",
-        "/img/imgi_83_jpeg.jpg",
-        "/img/imgi_84_jpeg.jpg",
-      ],
+      comment:
+        "Mình dùng cho cả tóc và râu, hiệu quả thật sự. Chỉ cần kiên trì một chút là thấy kết quả rõ ràng. Rất đáng để thử!",
+      images: ["/img/imgi_82_jpeg.jpg"],
       date: "2024-01-13",
     },
-    {
-      id: "4",
-      userName: "M** T***n",
-      userAvatar: "/img/khach3.jpg",
-      rating: 5,
-      itemDetail: "3 cặp",
-      comment:
-        "Đợt chồng mình lo làm việc nên tóc rụng muốn hói cả đầu. Mình mua ngay cho chồng 3 hộp để sài dần. Hôm nay thấy chồng nhìn trẻ ra hẳn. Đánh giá 5 sao cho sản phẩm",
-      images: [
-        "/img/imgi_85_jpeg.jpg",
-        "/img/imgi_86_jpeg.jpg",
-        "/img/imgi_87_jpeg.jpg",
-      ],
-      date: "2024-01-12",
-    },
-    {
-      id: "5",
-      userName: "H** L***n",
-      userAvatar: "/img/khach4.jpg",
-      rating: 5,
-      itemDetail: "2 cặp",
-      comment:
-        "Eo ơi k nghĩ giá này mà được cặp gội xịn như vậy, cả gội cả hấp, bình thường hấp tại salon đã 500k rùi. Đỉnh nha",
-      images: [
-        "/img/imgi_88_jpeg.jpg",
-        "/img/imgi_89_jpeg.jpg",
-        "/img/imgi_90_png.png",
-      ],
-      date: "2024-01-11",
-    },
-    {
-      id: "6",
-      userName: "N** T***m",
-      userAvatar: "/img/khach7.jpg",
-      rating: 5,
-      itemDetail: "1 cặp",
-      comment:
-        "Tóc mình trước đây rất yếu và hay rụng. Sau khi dùng Long Thành Phát được 3 tuần, tóc đã chắc khỏe hơn nhiều. Cảm ơn anh!",
-      images: [
-        "/img/imgi_78_jpeg.jpg",
-        "/img/imgi_79_jpeg.jpg",
-        "/img/imgi_80_jpeg.jpg",
-      ],
-      date: "2024-01-10",
-    },
+    // {
+    //   id: "4",
+    //   userName: "M** T***n",
+    //   userAvatar: "/img/khach3.jpg",
+    //   rating: 5,
+    //   itemDetail: "3 cặp",
+    //   comment:
+    //     "Đợt chồng mình lo làm việc nên tóc rụng muốn hói cả đầu. Mình mua ngay cho chồng 3 hộp để sài dần. Hôm nay thấy chồng nhìn trẻ ra hẳn. Đánh giá 5 sao cho sản phẩm",
+    //   images: [
+    //     "/img/imgi_85_jpeg.jpg",
+    //     "/img/imgi_86_jpeg.jpg",
+    //     "/img/imgi_87_jpeg.jpg",
+    //   ],
+    //   date: "2024-01-12",
+    // },
+    // {
+    //   id: "5",
+    //   userName: "H** L***n",
+    //   userAvatar: "/img/khach4.jpg",
+    //   rating: 5,
+    //   itemDetail: "2 cặp",
+    //   comment:
+    //     "Eo ơi k nghĩ giá này mà được cặp gội xịn như vậy, cả gội cả hấp, bình thường hấp tại salon đã 500k rùi. Đỉnh nha",
+    //   images: [
+    //     "/img/imgi_88_jpeg.jpg",
+    //     "/img/imgi_89_jpeg.jpg",
+    //     "/img/imgi_90_png.png",
+    //   ],
+    //   date: "2024-01-11",
+    // },
+    // {
+    //   id: "6",
+    //   userName: "N** T***m",
+    //   userAvatar: "/img/khach7.jpg",
+    //   rating: 5,
+    //   itemDetail: "1 cặp",
+    //   comment:
+    //     "Tóc mình trước đây rất yếu và hay rụng. Sau khi dùng Long Thành Phát được 3 tuần, tóc đã chắc khỏe hơn nhiều. Cảm ơn anh!",
+    //   images: [
+    //     "/img/imgi_78_jpeg.jpg",
+    //     "/img/imgi_79_jpeg.jpg",
+    //     "/img/imgi_80_jpeg.jpg",
+    //   ],
+    //   date: "2024-01-10",
+    // },
   ];
 
   // Certifications data
@@ -267,7 +255,8 @@ const App: React.FC = () => {
       isHot: true,
       isSuperDeal: true,
       isFreeship: true,
-      description: "CB02 : COMBO MỌC TÓC CƠ BẢN.GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM (429K - Miễn Phí Ship)",
+      description:
+        "CB02 : COMBO MỌC TÓC CƠ BẢN.GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM (429K - Miễn Phí Ship)",
     },
     {
       id: "CB03",
@@ -276,7 +265,8 @@ const App: React.FC = () => {
       isHot: false,
       isSuperDeal: false,
       isFreeship: true,
-      description: "CB03: COMBO MỌC RÂU -LÔNG MÀY NÂNG CAO .GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM ( 529K - Miễn Phí Ship)",
+      description:
+        "CB03: COMBO MỌC RÂU -LÔNG MÀY NÂNG CAO .GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM ( 529K - Miễn Phí Ship)",
     },
     {
       id: "CB04",
@@ -285,7 +275,8 @@ const App: React.FC = () => {
       isHot: false,
       isSuperDeal: false,
       isFreeship: true,
-      description: "CB04: COMBO MỌC TÓC TRUNG BÌNH. GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC 300ML ( 569K -Miễn Phí Ship)",
+      description:
+        "CB04: COMBO MỌC TÓC TRUNG BÌNH. GỒM 1 LỌ MINOXIDIL 5% + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC 300ML ( 569K -Miễn Phí Ship)",
     },
     {
       id: "CB05",
@@ -294,7 +285,8 @@ const App: React.FC = () => {
       isHot: true,
       isSuperDeal: true,
       isFreeship: true,
-      description: "CB05 : COMBO MỌC TÓC NÂNG CAO. GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC ( 639K - Miễn Phí Ship)",
+      description:
+        "CB05 : COMBO MỌC TÓC NÂNG CAO. GỒM 1 LỌ MINOXIDIL 5% + 1 ỐNG BỘT TRỘN LCLT + 1 LĂN KIM + 1 CHAI DẦU GỘI DHT -BLOCKER ORGANIC ( 639K - Miễn Phí Ship)",
     },
   ];
 
@@ -347,14 +339,16 @@ const App: React.FC = () => {
           onOrderModalOpen={() => setIsOrderModalOpen(true)}
         />
 
+
+        <Reviews reviews={reviews} overallRating={4.9} totalReviews={1628} />
+        <Description certifications={certifications} />
+
+        <CustomerFeedback />
+
         <Overview
           hairProblems={hairProblems}
           productBenefits={productBenefits}
         />
-        <Description certifications={certifications} />
-
-        <Reviews reviews={reviews} overallRating={4.9} totalReviews={1628} />
-        <CustomerFeedback />
         <Suggestions
           packages={packages}
           onPackageSelect={handlePackageSelect}

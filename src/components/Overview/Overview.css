@@ -109,10 +109,10 @@
 }
 
 .showcase-item {
-  border: 2px solid #e74c3c;
+  /* border: 2px solid #e74c3c; */
   border-radius: 8px;
   overflow: hidden;
-  height: 150px;
+  height: 300px;
 }
 
 .showcase-item img {
