@@ -1,6 +1,6 @@
-import React from 'react';
+import { faCartShopping, faEllipsis, faSearch, faShare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faShare, faCartShopping, faEllipsis } from '@fortawesome/free-solid-svg-icons';
+import React from 'react';
 import { NavigationTab } from '../../types';
 import './Header.css';
 
@@ -9,9 +9,10 @@ interface HeaderProps {
   activeTab: string;
   onTabClick: (tabId: string) => void;
   onOrderModalOpen: () => void;
+  onStoreClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick, onOrderModalOpen }) => {
+const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick, onOrderModalOpen, onStoreClick }) => {
   return (
     <header className="header">
       <div className="header-top">
@@ -21,8 +22,8 @@ const Header: React.FC<HeaderProps> = ({ tabs, activeTab, onTabClick, onOrderMod
         </div>
         <div className="header-actions">
           <button className="action-btn" onClick={onOrderModalOpen}><FontAwesomeIcon icon={faShare} /></button>
-          <button className="action-btn" onClick={onOrderModalOpen}><FontAwesomeIcon icon={faCartShopping} /></button>
-          <button className="action-btn" onClick={onOrderModalOpen}><FontAwesomeIcon icon={faEllipsis} /></button>
+          <button className="action-btn" onClick={onStoreClick}><FontAwesomeIcon icon={faCartShopping} /></button>
+          <button className="action-btn" onClick={onStoreClick}><FontAwesomeIcon icon={faEllipsis} /></button>
         </div>
       </div>
       

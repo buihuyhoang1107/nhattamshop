@@ -326,6 +326,7 @@ const App: React.FC = () => {
         activeTab={activeTab}
         onTabClick={handleTabClick}
         onOrderModalOpen={() => setIsOrderModalOpen(true)}
+        onStoreClick={handleStoreClick}
       />
       <div className="App">
         <ProductSlide images={productImages} />
