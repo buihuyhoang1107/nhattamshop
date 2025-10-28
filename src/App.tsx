@@ -59,7 +59,7 @@ const App: React.FC = () => {
     id: "1",
     name: "Long Thành Phát Shampoo",
     title:
-      "Long Thành Phát - Trùm về các sản phẩm mọc râu - mọc tóc tại Việt Nam",
+      "Minoxidil 5% ,Sản Phẩm Kích Thích Mọc Râu - Mọc Tóc - Mọc Lông Mày Và Lông Cơ Thể",
     rating: 4.9,
     reviewCount: 62.3,
     soldCount: "368.2K",
@@ -87,21 +87,21 @@ const App: React.FC = () => {
     {
       id: "2",
       title: "Tóc mỏng",
-      description: "Lông mày thưa, nhạt màu – khuôn mặt thiếu thần thái.",
+      description:
+        "Râu mọc lưa thưa, không đều – nhìn kém nam tính, khó tạo phong c",
       image: "/img/problems-grid2.png",
     },
     {
       id: "3",
       title: "Thử nhiều sản phẩm",
-      description:
-        "Dù thử nhiều sản phẩm mọc tóc, mọc râu, mọc lông mày – nhưng vẫn không thấy hiệu quả rõ rệt.",
+      description: "Lông mày thưa, nhạt màu – khuôn mặt thiếu thần thái.",
       image: "/img/problems-grid3.png",
     },
     {
       id: "4",
       title: "Tóc khô xơ",
       description:
-        "Tóc khô xơ, chẻ ngọn, xù rối – nhìn già hơn tuổi thật, mất hẳn sức sống",
+        "Dù thử nhiều sản phẩm mọc tóc, mọc râu, mọc lông mày – nhưng vẫn không thấy hiệu quả rõ rệt.",
       image: "/img/problems-grid4.png",
     },
   ];
@@ -110,13 +110,13 @@ const App: React.FC = () => {
   const productBenefits: ProductBenefit[] = [
     {
       id: "1",
-      title: "DƯỠNG TÓC TỪ GỐC",
+      title: "",
       description:
-        "Chiết xuất Biotin – Collagen – Keratin đi sâu vào chân tóc, nuôi dưỡng nang tóc chắc khỏe, giúp sợi tóc không còn gãy rụng từng nằm.",
+        "Giúp Kích Thích Mọc Tóc . Giải Quyết Được Tình Trạng Rụng Tóc Hói Đầu. khiến Bạn Tự Tin Hơn",
       features: [
-        "Khác biệt lớn: Kể cả khi bạn ngưng dùng sản phẩm, tóc vẫn giữ độ chắc khỏe – không bị rụng lại như ban đầu.",
+        "Cải Thiện Vấn Đề Lông Mày Thưa Thớt. Minoxidil 5% Sẽ Giúp Bạn Có 1 Bộ Lông Mày Đẹp Rậm Rạp Hơn. Minoxidil 5% Sẽ Giúp Bạn Có Được Bộ Râu Đẹp Như Ý Mà Bạn Hằng Mong Ước. Giúp Bạn Trông Nam Tính Và Tự Tin Hơn",
       ],
-      images: ["/img/imgi_57_gif.gif", "/img/imgi_58_gif.gif"],
+      images: ["/img/problems-grid1.png", "/img/problems-grid2.png"],
     },
   ];
 
@@ -127,7 +127,7 @@ const App: React.FC = () => {
       userName: "Tr** N***g",
       userAvatar: "/img/khach0.jpg",
       rating: 5,
-      itemDetail: "1 cặp",
+      itemDetail: "Combo 1",
       comment:
         "Lần đầu tiên thấy sản phẩm mọc tóc mà hiệu quả rõ rệt như vậy. Dùng đúng hướng dẫn là tóc mọc chắc khỏe, không bị rụng lại",
       images: ["/img/imgi_74_jpeg.jpg", "/img/imgi_75_jpeg.jpg"],
@@ -138,7 +138,7 @@ const App: React.FC = () => {
       userName: "L* N***n",
       userAvatar: "/img/khach7.jpg",
       rating: 5,
-      itemDetail: "2 cặp",
+      itemDetail: "Combo 2",
       comment:
         "Sản phẩm chính hãng, đóng gói cẩn thận. Mình dùng được 2 lọ rồi, tóc dày hơn trước nhiều. Quá đáng tiền!",
       images: ["/img/imgi_77_jpeg.jpg", "/img/imgi_78_jpeg.jpg"],
@@ -149,57 +149,53 @@ const App: React.FC = () => {
       userName: "T***h T**g",
       userAvatar: "/img/khach2.jpg",
       rating: 5,
-      itemDetail: "1 cặp",
+      itemDetail: "Combo 3",
       comment:
         "Mình dùng cho cả tóc và râu, hiệu quả thật sự. Chỉ cần kiên trì một chút là thấy kết quả rõ ràng. Rất đáng để thử!",
       images: ["/img/imgi_82_jpeg.jpg"],
       date: "2024-01-13",
     },
-    // {
-    //   id: "4",
-    //   userName: "M** T***n",
-    //   userAvatar: "/img/khach3.jpg",
-    //   rating: 5,
-    //   itemDetail: "3 cặp",
-    //   comment:
-    //     "Đợt chồng mình lo làm việc nên tóc rụng muốn hói cả đầu. Mình mua ngay cho chồng 3 hộp để sài dần. Hôm nay thấy chồng nhìn trẻ ra hẳn. Đánh giá 5 sao cho sản phẩm",
-    //   images: [
-    //     "/img/imgi_85_jpeg.jpg",
-    //     "/img/imgi_86_jpeg.jpg",
-    //     "/img/imgi_87_jpeg.jpg",
-    //   ],
-    //   date: "2024-01-12",
-    // },
-    // {
-    //   id: "5",
-    //   userName: "H** L***n",
-    //   userAvatar: "/img/khach4.jpg",
-    //   rating: 5,
-    //   itemDetail: "2 cặp",
-    //   comment:
-    //     "Eo ơi k nghĩ giá này mà được cặp gội xịn như vậy, cả gội cả hấp, bình thường hấp tại salon đã 500k rùi. Đỉnh nha",
-    //   images: [
-    //     "/img/imgi_88_jpeg.jpg",
-    //     "/img/imgi_89_jpeg.jpg",
-    //     "/img/imgi_90_png.png",
-    //   ],
-    //   date: "2024-01-11",
-    // },
-    // {
-    //   id: "6",
-    //   userName: "N** T***m",
-    //   userAvatar: "/img/khach7.jpg",
-    //   rating: 5,
-    //   itemDetail: "1 cặp",
-    //   comment:
-    //     "Tóc mình trước đây rất yếu và hay rụng. Sau khi dùng Long Thành Phát được 3 tuần, tóc đã chắc khỏe hơn nhiều. Cảm ơn anh!",
-    //   images: [
-    //     "/img/imgi_78_jpeg.jpg",
-    //     "/img/imgi_79_jpeg.jpg",
-    //     "/img/imgi_80_jpeg.jpg",
-    //   ],
-    //   date: "2024-01-10",
-    // },
+    {
+      id: "4",
+      userName: "M** T***n",
+      userAvatar: "/img/khach3.jpg",
+      rating: 5,
+      itemDetail: "Combo 1",
+      comment:
+        "Lọ t4 . Là các bác phải biết hiệu quả ntn rồi đấy ạ. Có hiệu quả nên vẫn kiên trì dùng tiếp đấy ạ. Trước vùng này của e hói, hiện tại dùng lọ t4 là dk như này rồi đây ạ. Và có rất nhiều tóc con cũng đang mọc nữa",
+      images: [
+        "/img/imgi_85_jpeg.jpg",
+        "/img/imgi_87_jpeg.jpg",
+      ],
+      date: "2024-01-12",
+    },
+    {
+      id: "5",
+      userName: "H** L***n",
+      userAvatar: "/img/khach4.jpg",
+      rating: 5,
+      itemDetail: "Combo 5",
+      comment:
+        "Hiện tại mình đã bắt đầu sự dụng đến chai thứ ba và cũng đã có kết quả khá là tốt khi dùng hết chai thứ hai tóc con thấy mọc ra khá là nhiều, nhất là khi sự dụng loại chai mới",
+      images: [
+        "/img/imgi_89_jpeg.jpg",
+      ],
+      date: "2024-01-11",
+    },
+    {
+      id: "6",
+      userName: "N** T***m",
+      userAvatar: "/img/khach7.jpg",
+      rating: 5,
+      itemDetail: "Combo 2",
+      comment:
+        "Sản phẩm rất tốt, tiền nào của nấy, kiêng trị thoa lên đầu ngày 2 lần, sau 1 thời gian sử dụng đã một tóc, giá cả hợp túi tiền, nên mua mua nha m.n,",
+      images: [
+        "/img/imgi_79_jpeg.jpg",
+        "/img/imgi_80_jpeg.jpg",
+      ],
+      date: "2024-01-10",
+    },
   ];
 
   // Certifications data
@@ -296,7 +292,7 @@ const App: React.FC = () => {
   };
 
   const handleStoreClick = () => {
-    alert("Chuyển đến cửa hàng");
+    window.open("https://s.shopee.vn/5VN491ePpK", "_blank");
   };
 
   const handleChatClick = () => {
@@ -338,7 +334,6 @@ const App: React.FC = () => {
           product={product}
           onOrderModalOpen={() => setIsOrderModalOpen(true)}
         />
-
 
         <Reviews reviews={reviews} overallRating={4.9} totalReviews={1628} />
         <Description certifications={certifications} />

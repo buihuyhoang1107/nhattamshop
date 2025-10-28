@@ -288,7 +288,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
     <div className="order-form-container">
       {showHeader && (
         <div className="order-form-header">
-          <h2>Long Thành Phát - Trùm về các sản phẩm mọc râu - mọc tóc tại Việt Nam</h2>
+          <h2>Minoxidil 5% ,Sản Phẩm Kích Thích Mọc Râu - Mọc Tóc - Mọc Lông Mày Và Lông Cơ Thể</h2>
           <div className="discount-banner">
             <span className="discount-text">Giảm 40% hôm nay</span>
           </div>

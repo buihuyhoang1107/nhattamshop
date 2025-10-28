@@ -36,7 +36,7 @@ const Overview: React.FC<OverviewProps> = ({
         </div>
 
         <div className="cta-section">
-          <div className="arrows">↓↓↓</div>
+          {/* <div className="arrows">↓↓↓</div> */}
           <div className="cta-banner">
             <h3>Hãy sử dụng ngay minoxidil 5% và các sản phẩm kèm theo như Lăn Kim - Bột Trộn LCLT - Dầu Gội DHT - BLOCKER ORGANIC</h3>
           </div>
@@ -92,7 +92,7 @@ const Overview: React.FC<OverviewProps> = ({
       </div>
 
       {/* Hair Growth Section */}
-      <div className="hair-growth-section">
+      {/* <div className="hair-growth-section">
         <div className="growth-card">
           <h3 className="growth-title">KÍCH THÍCH MỌC TÓC MỚI</h3>
           <p className="growth-description">
@@ -108,10 +108,10 @@ const Overview: React.FC<OverviewProps> = ({
             <img src="/img/imgi_62_gif.gif" alt="Before treatment" />
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Hair Quality Section */}
-      <div className="hair-quality-section">
+      {/* <div className="hair-quality-section">
         <div className="quality-card">
           <h3 className="growth-title">TÓC ĐÀN HỒI, DÀY VÀ ĐẸP TỰ NHIÊN</h3>
           <div className="quality-description">
@@ -128,7 +128,7 @@ const Overview: React.FC<OverviewProps> = ({
             <img src="/img/imgi_60_gif.gif" alt="Hair thickness after" />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

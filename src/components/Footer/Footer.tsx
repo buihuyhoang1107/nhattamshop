@@ -19,7 +19,7 @@ const Footer: React.FC<FooterProps> = ({
   return (
     <footer className="footer">
       <div className="footer-left">
-        <button className="footer-btn" onClick={onBuyNow}>
+        <button className="footer-btn" onClick={onStoreClick}>
           <FontAwesomeIcon className="footer-icon" icon={faStore} />
           <span className="footer-text">Cửa hàng</span>
         </button>

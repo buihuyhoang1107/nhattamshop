@@ -215,14 +215,16 @@
 
 .benefit-images {
   display: flex;
+  flex-direction: row;
+  flex:1;
   gap: 8px;
 }
 
 .benefit-images img {
   margin: 0 auto;
   border: 1px solid #003eb9;
-  width: 180px;
-  height: 180px;
+  width: 170px;
+  height: 160px;
   object-fit: cover;
   border-radius: 4px;
 }
