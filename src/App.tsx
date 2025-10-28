@@ -45,11 +45,11 @@ const App: React.FC = () => {
 
   // Product images for slide
   const productImages = [
+    "/img/slide_img5.jpg",
     "/img/slide_img1.jpg",
     "/img/slide_img2.jpg",
     "/img/slide_img3.jpg",
     "/img/slide_img4.jpg",
-    "/img/slide_img5.jpg",
     "/img/slide_img6.jpg",
     "/img/slide_img7.jpg",
   ];
@@ -163,10 +163,7 @@ const App: React.FC = () => {
       itemDetail: "Combo 1",
       comment:
         "Lọ t4 . Là các bác phải biết hiệu quả ntn rồi đấy ạ. Có hiệu quả nên vẫn kiên trì dùng tiếp đấy ạ. Trước vùng này của e hói, hiện tại dùng lọ t4 là dk như này rồi đây ạ. Và có rất nhiều tóc con cũng đang mọc nữa",
-      images: [
-        "/img/imgi_85_jpeg.jpg",
-        "/img/imgi_87_jpeg.jpg",
-      ],
+      images: ["/img/imgi_85_jpeg.jpg", "/img/imgi_87_jpeg.jpg"],
       date: "2024-01-12",
     },
     {
@@ -177,9 +174,7 @@ const App: React.FC = () => {
       itemDetail: "Combo 5",
       comment:
         "Hiện tại mình đã bắt đầu sự dụng đến chai thứ ba và cũng đã có kết quả khá là tốt khi dùng hết chai thứ hai tóc con thấy mọc ra khá là nhiều, nhất là khi sự dụng loại chai mới",
-      images: [
-        "/img/imgi_89_jpeg.jpg",
-      ],
+      images: ["/img/imgi_89_jpeg.jpg"],
       date: "2024-01-11",
     },
     {
@@ -190,10 +185,7 @@ const App: React.FC = () => {
       itemDetail: "Combo 2",
       comment:
         "Sản phẩm rất tốt, tiền nào của nấy, kiêng trị thoa lên đầu ngày 2 lần, sau 1 thời gian sử dụng đã một tóc, giá cả hợp túi tiền, nên mua mua nha m.n,",
-      images: [
-        "/img/imgi_79_jpeg.jpg",
-        "/img/imgi_80_jpeg.jpg",
-      ],
+      images: ["/img/imgi_79_jpeg.jpg", "/img/imgi_80_jpeg.jpg"],
       date: "2024-01-10",
     },
   ];
@@ -337,7 +329,6 @@ const App: React.FC = () => {
         />
 
         <Reviews reviews={reviews} overallRating={4.9} totalReviews={1628} />
-        <Description certifications={certifications} />
 
         <CustomerFeedback />
 
@@ -345,6 +336,7 @@ const App: React.FC = () => {
           hairProblems={hairProblems}
           productBenefits={productBenefits}
         />
+        <Description certifications={certifications} />
         <Suggestions
           packages={packages}
           onPackageSelect={handlePackageSelect}
