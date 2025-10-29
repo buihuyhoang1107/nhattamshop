@@ -45,13 +45,12 @@ const App: React.FC = () => {
 
   // Product images for slide
   const productImages = [
+    "/img/slide_img6.jpg",
     "/img/slide_img5.jpg",
     "/img/slide_img1.jpg",
     "/img/slide_img2.jpg",
-    "/img/slide_img3.jpg",
-    "/img/slide_img4.jpg",
-    "/img/slide_img6.jpg",
     "/img/slide_img7.jpg",
+    "/img/slide_img4.jpg",
   ];
 
   // Product data
