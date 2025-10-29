@@ -47,6 +47,7 @@ const App: React.FC = () => {
   const productImages = [
     "/img/slide_img6.jpg",
     "/img/slide_img5.jpg",
+    "/img/slide_img8.jpg",
     "/img/slide_img1.jpg",
     "/img/slide_img2.jpg",
     "/img/slide_img7.jpg",
