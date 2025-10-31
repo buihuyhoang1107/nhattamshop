@@ -421,7 +421,6 @@ const OrderForm: React.FC<OrderFormProps> = ({
             type="email"
             value={customerInfo.email}
             onChange={(e) => handleInputChange("email", e.target.value)}
-            required
           />
         </div>
 
