@@ -1,3 +1,5 @@
+import { provincesData, districtsData, wardsData } from './vietnamAddressesData';
+
 export interface Province {
   code: string;
   name: string;
@@ -27,47 +29,44 @@ export interface Ward {
   district_code: string;
 }
 
-// API functions for provinces.open-api.vn
-const API_BASE_URL = 'https://provinces.open-api.vn/api';
+// Offline dataset
 
 export const getProvinces = async (): Promise<Province[]> => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/p/`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch provinces');
-    }
-    return await response.json();
-  } catch (error) {
-    console.error('Error fetching provinces:', error);
-    return [];
-  }
+  return provincesData.map((p) => ({
+    code: p.code,
+    name: p.name,
+    name_en: '',
+    full_name: p.name,
+    full_name_en: '',
+    code_name: '',
+  }));
 };
 
 export const getDistrictsByProvince = async (provinceCode: string): Promise<District[]> => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/p/${provinceCode}?depth=2`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch districts');
-    }
-    const data = await response.json();
-    return data.districts || [];
-  } catch (error) {
-    console.error('Error fetching districts:', error);
-    return [];
-  }
+  return districtsData
+    .filter((d) => d.province_code === provinceCode)
+    .map((d) => ({
+      code: d.code,
+      name: d.name,
+      name_en: '',
+      full_name: d.name,
+      full_name_en: '',
+      code_name: '',
+      province_code: d.province_code,
+    }));
 };
 
 export const getWardsByDistrict = async (districtCode: string): Promise<Ward[]> => {
-  try {
-    const response = await fetch(`${API_BASE_URL}/d/${districtCode}?depth=2`);
-    if (!response.ok) {
-      throw new Error('Failed to fetch wards');
-    }
-    const data = await response.json();
-    return data.wards || [];
-  } catch (error) {
-    console.error('Error fetching wards:', error);
-    return [];
-  }
+  return wardsData
+    .filter((w) => w.district_code === districtCode)
+    .map((w) => ({
+      code: w.code,
+      name: w.name,
+      name_en: '',
+      full_name: w.name,
+      full_name_en: '',
+      code_name: '',
+      district_code: w.district_code,
+    }));
 };
 
