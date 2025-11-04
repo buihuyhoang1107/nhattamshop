@@ -6,6 +6,7 @@ import {
 } from "../../data/vietnamAddresses";
 // Direct PHP email sending
 import { CustomerInfo, ProductPackage } from "../../types";
+import SuccessModal from "../SuccessModal/SuccessModal";
 import "./OrderForm.css";
 
 interface OrderFormProps {
@@ -39,6 +40,13 @@ const OrderForm: React.FC<OrderFormProps> = ({
   const [availableWards, setAvailableWards] = useState<any[]>([]);
   const [provinces, setProvinces] = useState<any[]>([]);
   const [loading, setLoading] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [successData, setSuccessData] = useState<{
+    orderId: string;
+    customerName: string;
+    packageName: string;
+    price: string;
+  } | null>(null);
 
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
@@ -155,6 +163,8 @@ const OrderForm: React.FC<OrderFormProps> = ({
       return;
     }
     
+    setLoading(true);
+    
     // Prepare email data - Convert codes to names
     const provinceName = provinces.find(p => p.code.toString() === customerInfo.province)?.name || customerInfo.province;
     const districtName = availableDistricts.find(d => d.code.toString() === customerInfo.district)?.name || customerInfo.district;
@@ -195,7 +205,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         <p>Trân trọng,<br>Long Thanh Phat Shop</p>
       `;
       
-      const customerEmailSent = await sendEmailViaPHP({
+      await sendEmailViaPHP({
         to: customerInfo.email,
         toName: customerInfo.fullName,
         from: 'admin@longthanhphat.store',
@@ -228,7 +238,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
         <p>Hệ thống Long Thanh Phat Shop</p>
       `;
       
-      const adminEmailSent = await sendEmailViaPHP({
+      await sendEmailViaPHP({
         to: 'admin@longthanhphat.store',
         toName: 'Admin',
         from: customerInfo.email,
@@ -238,17 +248,60 @@ const OrderForm: React.FC<OrderFormProps> = ({
         isHtml: true
       });
       
-      if (customerEmailSent && adminEmailSent) {
-      } else if (customerEmailSent) {
-      } else {
+      // Track Facebook Pixel Purchase event
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Purchase', {
+          value: selectedPkg.price,
+          currency: 'VND',
+          content_name: selectedPkg.name,
+        });
       }
+      
+      // Prepare success modal data
+      setSuccessData({
+        orderId,
+        customerName: customerInfo.fullName,
+        packageName: selectedPkg.name,
+        price: formattedPrice,
+      });
+      
+      // Show success modal
+      setShowSuccessModal(true);
       
       // Call original onSubmit
       onSubmit(customerInfo, selectedPackage);
+      setLoading(false);
       
     } catch (error) {
       console.error('Error sending emails:', error);
-      alert('⚠️ Đặt hàng thành công! Có lỗi khi gửi email tự động.');
+      setLoading(false);
+      
+      // Track Facebook Pixel Purchase event even if email fails
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Purchase', {
+          value: selectedPkg.price,
+          currency: 'VND',
+          content_name: selectedPkg.name,
+        });
+      }
+      
+      // Prepare success modal data
+      const orderId = `ORD-${Date.now()}`;
+      const formattedPrice = selectedPkg.price.toLocaleString('vi-VN', {
+        style: 'currency',
+        currency: 'VND'
+      });
+      
+      setSuccessData({
+        orderId,
+        customerName: customerInfo.fullName,
+        packageName: selectedPkg.name,
+        price: formattedPrice,
+      });
+      
+      // Show success modal
+      setShowSuccessModal(true);
+      
       onSubmit(customerInfo, selectedPackage);
     }
   };
@@ -457,10 +510,19 @@ const OrderForm: React.FC<OrderFormProps> = ({
           ))}
         </div>
 
-        <button type="submit" className="submit-btn">
-          HOÀN TẤT ĐẶT HÀNG
+        <button type="submit" className="submit-btn" disabled={loading}>
+          {loading ? 'Đang xử lý...' : 'HOÀN TẤT ĐẶT HÀNG'}
         </button>
       </form>
+      
+      <SuccessModal
+        isOpen={showSuccessModal}
+        onClose={() => setShowSuccessModal(false)}
+        orderId={successData?.orderId}
+        customerName={successData?.customerName}
+        packageName={successData?.packageName}
+        price={successData?.price}
+      />
     </div>
   );
 };

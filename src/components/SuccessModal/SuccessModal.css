@@ -1,0 +1,262 @@
+.success-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.success-modal-content {
+  background: white;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.success-modal-close-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.2s ease;
+}
+
+.success-modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: scale(1.1);
+}
+
+.success-modal-close-btn svg {
+  color: #666;
+  font-size: 16px;
+}
+
+.success-modal-body {
+  padding: 40px 30px;
+  text-align: center;
+}
+
+.success-icon {
+  color: #27ae60;
+  font-size: 64px;
+  margin-bottom: 20px;
+  animation: scaleIn 0.4s ease 0.2s both;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.success-title {
+  color: #333;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.success-message {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 25px;
+  line-height: 1.6;
+}
+
+.success-message strong {
+  color: #e74c3c;
+  font-weight: bold;
+}
+
+.success-info {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.info-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.info-item:last-child {
+  border-bottom: none;
+}
+
+.info-label {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.info-value {
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.info-value.price {
+  color: #e74c3c;
+  font-size: 18px;
+}
+
+.success-note {
+  color: #666;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-style: italic;
+}
+
+.success-close-button {
+  width: 100%;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.2);
+}
+
+.success-close-button:hover {
+  background: #c0392b;
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  transform: translateY(-2px);
+}
+
+.success-close-button:active {
+  transform: translateY(0);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .success-modal-content {
+    max-width: 95%;
+  }
+
+  .success-modal-body {
+    padding: 30px 20px;
+  }
+
+  .success-icon {
+    font-size: 56px;
+  }
+
+  .success-title {
+    font-size: 24px;
+  }
+
+  .success-message {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 421px) {
+  .success-modal-overlay {
+    padding: 10px;
+  }
+
+  .success-modal-content {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+
+  .success-modal-body {
+    padding: 30px 20px;
+  }
+
+  .success-icon {
+    font-size: 48px;
+    margin-bottom: 15px;
+  }
+
+  .success-title {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .success-message {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .success-info {
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+
+  .info-item {
+    padding: 10px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .info-value {
+    text-align: left;
+  }
+
+  .success-note {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .success-close-button {
+    padding: 14px;
+    font-size: 14px;
+  }
+}
+

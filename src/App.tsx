@@ -308,7 +308,7 @@ const App: React.FC = () => {
     selectedPackageId: string
   ) => {
     console.log("Order submitted:", { customerInfo, selectedPackageId });
-    alert("Đặt hàng thành công!");
+    // alert("Đặt hàng thành công!");
   };
 
   return (
