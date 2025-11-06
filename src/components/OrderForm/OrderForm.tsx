@@ -16,6 +16,7 @@ interface OrderFormProps {
   onSubmit: (customerInfo: CustomerInfo, selectedPackage: string) => void;
   showHeader?: boolean;
   showCountdown?: boolean;
+  onSuccessClose?: () => void;
 }
 
 const OrderForm: React.FC<OrderFormProps> = ({
@@ -25,6 +26,7 @@ const OrderForm: React.FC<OrderFormProps> = ({
   onSubmit,
   showHeader = false,
   showCountdown = false,
+  onSuccessClose,
 }) => {
   const [customerInfo, setCustomerInfo] = useState<CustomerInfo>({
     fullName: "",
@@ -106,6 +108,14 @@ const OrderForm: React.FC<OrderFormProps> = ({
       return () => clearInterval(timer);
     }
   }, [showCountdown]);
+
+  // Ensure a valid default selected package
+  React.useEffect(() => {
+    const hasValidSelection = packages.some((p) => p.id === selectedPackage);
+    if ((!selectedPackage || !hasValidSelection) && packages.length > 0) {
+      onPackageSelect(packages[0].id);
+    }
+  }, [packages, selectedPackage, onPackageSelect]);
 
   const handleInputChange = async (
     field: keyof CustomerInfo,
@@ -517,7 +527,12 @@ const OrderForm: React.FC<OrderFormProps> = ({
       
       <SuccessModal
         isOpen={showSuccessModal}
-        onClose={() => setShowSuccessModal(false)}
+        onClose={() => {
+          setShowSuccessModal(false);
+          if (onSuccessClose) {
+            onSuccessClose();
+          }
+        }}
         orderId={successData?.orderId}
         customerName={successData?.customerName}
         packageName={successData?.packageName}

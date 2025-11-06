@@ -18,11 +18,17 @@ const OrderModal: React.FC<OrderModalProps> = ({
   packages, 
   onSubmit 
 }) => {
-  const [selectedPackage, setSelectedPackage] = React.useState<string>('CB1');
+  const [selectedPackage, setSelectedPackage] = React.useState<string>('');
+
+  // Ensure a default selected package from the provided list
+  React.useEffect(() => {
+    if (!selectedPackage && packages && packages.length > 0) {
+      setSelectedPackage(packages[0].id);
+    }
+  }, [packages, selectedPackage]);
 
   const handleOrderSubmit = (customerInfo: CustomerInfo, selectedPackageId: string) => {
     onSubmit(customerInfo, selectedPackageId);
-    onClose();
   };
 
   if (!isOpen) return null;
@@ -41,6 +47,7 @@ const OrderModal: React.FC<OrderModalProps> = ({
           onSubmit={handleOrderSubmit}
           showHeader={true}
           showCountdown={true}
+          onSuccessClose={onClose}
         />
       </div>
     </div>

@@ -284,10 +284,7 @@ const App: React.FC = () => {
   };
 
   const handleStoreClick = () => {
-    window.open("https://s.shopee.vn/5VN491ePpK", "_blank");
-  };
-  const handleStoreClick2 = () => {
-    window.open("https://s.shopee.vn/7pl8feminU", "_blank");
+    window.open("https://s.shopee.vn/2B6oVUOSeh", "_blank");
   };
 
   const handleChatClick = () => {
@@ -347,7 +344,7 @@ const App: React.FC = () => {
           onSubmit={handleOrderSubmit}
         />
         <Footer
-          onStoreClick={handleStoreClick2}
+          onStoreClick={handleStoreClick}
           onChatClick={handleChatClick}
           onAddToCart={handleAddToCart}
           onBuyNow={handleBuyNow}

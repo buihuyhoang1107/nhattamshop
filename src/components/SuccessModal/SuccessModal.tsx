@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle, faTimes } from '@fortawesome/free-solid-svg-icons';
 import './SuccessModal.css';
@@ -20,9 +21,32 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
   packageName,
   price,
 }) => {
+  // Prevent body scroll when modal is open
+  React.useEffect(() => {
+    if (isOpen) {
+      const originalStyle = window.getComputedStyle(document.body).overflow;
+      const originalPosition = document.body.style.position;
+      const originalWidth = document.body.style.width;
+      const scrollY = window.scrollY;
+      
+      document.body.style.overflow = 'hidden';
+      document.body.style.position = 'fixed';
+      document.body.style.width = '100%';
+      document.body.style.top = `-${scrollY}px`;
+      
+      return () => {
+        document.body.style.overflow = originalStyle;
+        document.body.style.position = originalPosition;
+        document.body.style.width = originalWidth;
+        document.body.style.top = '';
+        window.scrollTo(0, scrollY);
+      };
+    }
+  }, [isOpen]);
+
   if (!isOpen) return null;
 
-  return (
+  const modalContent = (
     <div className="success-modal-overlay" onClick={onClose}>
       <div className="success-modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="success-modal-close-btn" onClick={onClose}>
@@ -73,6 +97,14 @@ const SuccessModal: React.FC<SuccessModalProps> = ({
       </div>
     </div>
   );
+
+  // Use React Portal to render modal outside the component tree
+  // Fallback to regular render if document.body is not available
+  if (typeof document !== 'undefined' && document.body) {
+    return ReactDOM.createPortal(modalContent, document.body);
+  }
+  
+  return modalContent;
 };
 
 export default SuccessModal;
